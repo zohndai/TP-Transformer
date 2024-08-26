@@ -5,7 +5,7 @@ import rdkit
 from rdkit import Chem
 from rdkit.Chem import AllChem
 #from rdkit.Chem import Draw
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 
 st.set_page_config(
