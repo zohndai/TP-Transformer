@@ -61,42 +61,8 @@ class morgan_fp:
         npfp = np.array(list(fp)).astype('float32')
         return npfp
 
-training_data_OH = load_data('data/OH.xlsx')
-training_data_SO4 = load_data('data/SO4.xlsx')
-training_data_KOC = load_data('data/KOC.xlsx')
-training_data_SOL= load_data('data/SOL.xlsx')
-training_data_pkd = load_data('data/pkd.xlsx')
-training_data_pic50 = load_data('data/IC50.xlsx')
-training_data_ccsmh = load_data('data/MH_1425.csv')
-training_data_ccsmna= load_data('data/MNa_720.csv')
-training_data_lipo = load_data('data/Lipophilicity.csv')
-training_data_freesolv = load_data('data/freesolv.csv')
 
-train_OH = load_data('data/OH_train_2.csv')
-train_SO4 = load_data('data/SO4_train_2.csv')
-train_KOC = load_data('data/koc_train_2.csv')
-train_SOL= load_data('data/Sol_train_2.csv')
-train_pkd = load_data('data/pka_train_2.csv')
-train_pic50 = load_data('data/pic50_train_2.csv')
-train_ccsmh = load_data('data/ccsmh_train_2.csv')
-train_ccsmna= load_data('data/ccsmna_train_2.csv')
-train_lipo = load_data('data/lipo_train_2.csv')
-train_freesolv= load_data('data/freesolv_train_2.csv')
 
-model_OH = load_model('model/OH_model.model')
-sc_oh = load_sc('data/OH_sc.sc')
-model_SO4 = load_model('model/SO4_model.model')
-sc_so4 = load_sc('data/SO4_sc.sc')
-model_KOC = load_model('model/KOC_model.model')
-model_SOL= load_model('model/SOL_model.model')
-model_pkd = load_model('model/pkd.model')
-model_pic50= load_model('model/pIC50_model.model')
-model_ccsmh = load_model('model/ccsmh_model.model')
-model_ccsmna= load_model('model/ccsmna_model.model')
-model_lipo = load_model('model/lipo_model.model')
-model_freesolv= load_model('model/freesolv_model.model')
-
-	
 st.subheader('Raw training data')
 if st.checkbox('Show raw training data'):
 	st.session_state['select']=False
@@ -999,6 +965,6 @@ def run():
 					   file_name='my_dataset_prediciton.csv',
 					   mime='text/csv')
 
-if __name__ == '__main__':
-    run()
+#if __name__ == '__main__':
+#    run()
 
