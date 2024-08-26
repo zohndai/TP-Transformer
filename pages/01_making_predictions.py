@@ -4,7 +4,7 @@ import numpy as np
 import rdkit
 from rdkit import Chem
 from rdkit.Chem import AllChem
-from rdkit.Chem import Draw
+#from rdkit.Chem import Draw
 import matplotlib.pyplot as plt
 
 
