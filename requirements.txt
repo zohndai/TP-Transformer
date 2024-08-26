@@ -1,3 +1,4 @@
+streamlit
 asttokens==2.0.5
 Brotli==1.0.9
 certifi==2024.7.4
