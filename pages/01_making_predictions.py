@@ -27,6 +27,6 @@ st.subheader("Please select the method for extertal energy input for the ROSs ge
 st.selectbox("what method?",("UV", "heat", "Visible Light", "Micro Wave", "Electricity", "Ultrasound"))
 
 st.subheader('Please input the reaction pH for pollutant degradation')
-st.text_input("","7.00")
+st.text_input("keep two decimal places","7.00")
 
 
