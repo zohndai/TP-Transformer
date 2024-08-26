@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 #import dill
-from rdkit import Chem, DataStructs
+from rdkit import Chem
 from rdkit.Chem import AllChem
 from rdkit.Chem import Draw
 #from catboost import CatBoostRegressor
