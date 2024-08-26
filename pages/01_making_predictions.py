@@ -5,9 +5,9 @@ import numpy as np
 from rdkit import Chem, DataStructs
 from rdkit.Chem import AllChem
 from rdkit.Chem import Draw
-from catboost import CatBoostRegressor
-import cirpy
-import shap
+$from catboost import CatBoostRegressor
+#import cirpy
+#import shap
 import matplotlib.pyplot as plt
 
 
