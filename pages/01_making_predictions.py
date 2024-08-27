@@ -61,21 +61,3 @@ if smile is None:
 
 with st.expander("Show how to get SMILES of chemicals"):
 	st.write('You can get SMILES of any molecules from PubChem https://pubchem.ncbi.nlm.nih.gov/ by typing Chemical name or ACS number')
-
-
-
-
-if select=='OH radical':
-	ros_mis = '[OH]'
-
-	col1, col2, col3= st.columns([1,1,1])
-	
-	if "click1" not in st.session_state:
-		st.session_state.click1=False 
-	if col1.button('Get the prediction') or st.session_state.click1:
-		##checking if it is within AD
-		ms1 = Chem.MolFromSmiles(smile)
-		fp_test= AllChem.GetHashedMorganFingerprint(ms1, 0, 3764)
-		xx = []
-	if "click2" not in st.session_state:
-		st.session_state.click2=False 
