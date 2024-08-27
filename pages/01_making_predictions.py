@@ -29,4 +29,5 @@ st.selectbox("what method?",("UV", "heat", "Visible Light", "Micro Wave", "Elect
 st.subheader('Please input the reaction pH for pollutant degradation')
 st.text_input("keep two decimal places","7.00")
 
-
+st.subheader('Please input the SMILES of pollutants')
+st.text_input("Please offer Chemical name, CAS number, or SMILES of precursors', e.g. 'c1ccccc1' for benzene", "c1ccccc1")
