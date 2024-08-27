@@ -60,7 +60,10 @@ if smile is None:
 
 with st.expander("Show how to get SMILES of chemicals"):
 	st.write('You can get SMILES of any molecules from PubChem https://pubchem.ncbi.nlm.nih.gov/ by typing Chemical name or ACS number')
-
+	
+col1, col2, col3, col4= st.columns([2,2,1,1])
+if col1.button('Get the prediction'):
+		model_path = gdown_model.download()
 def run():
 	col1, col2, col3, col4= st.columns([2,2,1,1])
 	if col1.button('Get the prediction'):
