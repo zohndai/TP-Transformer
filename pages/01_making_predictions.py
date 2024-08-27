@@ -190,7 +190,7 @@ if True:
 	if col1.button('Get the prediction'):
 		model_path = download()
 		message_container = st.empty()
-		message_container.text("model version:2024-08-26")
+		message_container.text("model version:DP-Transformer-1.0.20240826")
 	
 		parser_tsl = ArgumentParser(description="translate.py")
 		opts.config_opts(parser_tsl)
