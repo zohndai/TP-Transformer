@@ -47,9 +47,14 @@ with st.expander("Show how to get SMILES of chemicals"):
 	st.write('You can get SMILES of any molecules from PubChem https://pubchem.ncbi.nlm.nih.gov/ by typing Chemical name or ACS number')
 
 
-
+ros_selec = ["HO∙", "SO₄∙⁻","O₃", "¹O₂",  "Fe(VI)", "O₂∙⁻", "MnO₄⁻", "ClO⁻","HClO", "Cl₂","Cl∙","CO₃∙⁻","Cl₂∙⁻","C₂H₂O₃∙", \
+             "Cu(III)","Fe(V)",  "NO₂∙", "Mn(V)", "HSO₄∙", "O₂", "BrO⁻","NO∙", "ClO∙","Fe(IV)","Br∙", "IO⁻","C₂H₃O₂∙",\
+             "HSO₅⁻", "ClO₂∙", "Br₂","HOBr","HO₂⁻","I∙", "NO₃∙", "IO₃∙⁻", \
+           "Fe(III)", "S₂O₈∙⁻","HCO₃∙", "SO₃∙⁻"]
+ros_smi = ['[OH]', ]
 if select=='OH radical':
 	ros_mis = '[OH]'
+
 	col1, col2, col3= st.columns([1,1,1])
 	
 	if "click1" not in st.session_state:
