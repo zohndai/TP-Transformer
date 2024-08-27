@@ -31,6 +31,14 @@ import pandas as pd
 import onmt.model_builder
 import onmt.translate
 from onmt.utils.misc import split_corpus
+import re
+
+def smi_tokenize(smi):
+    pattern = "(\[[^\]]+]|Br?|Cl?|N|O|S|P|F|I|b|c|n|o|s|p|\(|\)|\.|=|#|-|\+|\\\\|\/|:|~|@|\?|>|\*|\$|\%[0-9]{2}|[0-9]|UV|MW|VL|hv|E|US|heat|<|_)"
+    compiled_pt = re.compile(pattern)
+    tokens = [token for token in compiled_pt.findall(smi)]
+    #assert smi == ''.join(tokens)
+    return " ".join(tokens)
 
 def load_model(fd,model_name):
     file_id = fd
@@ -70,13 +78,14 @@ ros_name = ["HO∙", "SO₄∙⁻","O₃", "¹O₂",  "Fe(VI)", "O₂∙⁻", "M
              "Cu(III)","Fe(V)",  "NO₂∙", "Mn(V)", "HSO₄∙", "O₂", "BrO⁻","NO∙", "ClO∙","Fe(IV)","Br∙", "IO⁻","C₂H₃O₂∙",\
              "HSO₅⁻", "ClO₂∙", "Br₂","HOBr","HO₂⁻","I∙", "NO₃∙", "IO₃∙⁻", \
            "Fe(III)", "S₂O₈∙⁻","HCO₃∙", "SO₃∙⁻","Unkown"]
-ros_smi = ['[OH]', '[O]S(=O)(=O)[O-]', 'O=[O+][O-]','OO1', 'O=[Fe](=O)([O-])[O-]', '[O][O-]', 'O=[Mn](=O)(=O)[O-]','[O-]Cl','OCl', 'ClCl', '[Cl]', '[O]C(=O)[O-]','Cl[Cl-]', 'CC(=O)O[O]',\
+ros_smis = ['[OH]', '[O]S(=O)(=O)[O-]', 'O=[O+][O-]','OO1', 'O=[Fe](=O)([O-])[O-]', '[O][O-]', 'O=[Mn](=O)(=O)[O-]','[O-]Cl','OCl', 'ClCl', '[Cl]', '[O]C(=O)[O-]','Cl[Cl-]', 'CC(=O)O[O]',\
 	    '[Cu+3]','O=[Fe]([O-])([O-])[O-]', '[O]N=O','[O-][Mn]([O-])([O-])=O', '[O]S(=O)(=O)O', 'O=O', '[O-]Br','[N]=O', '[O]Cl','[O-][Fe]([O-])([O-])[O-]','[Br]','[O-]I','CC([O])=O',\
 	    'O=S(=O)([O-])OO', '[O][Cl+][O-]','BrBr', 'OBr', '[O-]O', '[I]', '[O][N+](=O)[O-]', '[O-][I+2]([O-])[O-]',\
 	   '[Fe+3]', '[O]S(=O)(=O)OOS(=O)(=O)[O-]','[O]C(=O)O', '[O]S(=O)[O-]', '']
 
+
 acti_methd=["UV", "Heat", "Visible light", "Microwave", "Electricity", "Ultrasound", "Sunlight", "No"]
-methd_token=["UV", "heat", "VL", "MW", "E", "US", "SL", ""]
+methd_tokens=["UV", "heat", "VL", "MW", "E", "US", "SL", ""]
 
 st.subheader('Please select the ROSs that drive the pollutant degradation')
 ros_selct=st.selectbox('What ROSs?', ( "HO∙", "SO₄∙⁻","O₃", "¹O₂",  "Fe(VI)", "O₂∙⁻", "MnO₄⁻", "ClO⁻","HClO", "Cl₂","Cl∙","CO₃∙⁻","Cl₂∙⁻","C₂H₃O₃∙", \
@@ -86,22 +95,26 @@ ros_selct=st.selectbox('What ROSs?', ( "HO∙", "SO₄∙⁻","O₃", "¹O₂", 
 #st.write('You selected:', ros_selct)
 #select = st.radio("Please specify the property or activity you want to predict", ('OH radical', 'SO4- radical', 'Koc', 'Solubility','pKd','pIC50','CCSM_H','CCSM_Na', 'Lipo','FreeSolv' ))
 st.subheader('Please input the precursors of the ROSs')
-st.text_input("Please offer the SMILES of precursors, e.g.'OO.[Fe+2]' for the fenton reagent H2O2/Fe2+ ", "OO.[Fe+2]")
+prec = st.text_input("Please offer the SMILES of precursors, e.g.'OO.[Fe+2]' for the fenton reagent H2O2/Fe2+ ", "OO.[Fe+2]")
+prec_smile = cirpy.resolve(prec, 'smiles')
+if prec_smile is None:
+	st.warning('Invalid chemical name or CAS number, please recheck it again or you can directly type the SMILES')
+	st.stop()
 
 st.subheader("Please select the method for extertal energy input for the ROSs generation", "UV")
 methd_selct=st.selectbox("what method?",("UV", "Heat", "Visible light", "Microwave", "Electricity", "Ultrasound", "Sunlight"))
 
 st.subheader('Please input the reaction pH for pollutant degradation')
-st.text_input("Keep two decimal places","7.00")
+ph_value = st.text_input("Keep two decimal places","7.00")
 
 
-st.subheader('What is contaminant?')
-s = st.text_input("Please offer Chemical name, CAS number, or SMILES of the pollutant, e.g. 'c1ccccc1' for benzene", "c1ccccc1")
+st.subheader('What pollutant?')
+poll = st.text_input("Please offer Chemical name, CAS number, or SMILES of the pollutant, e.g. 'c1ccccc1' for benzene", "c1ccccc1")
 
-if s =='':
+if poll =='':
 	st.warning('You should at least provide one chemical')
 	st.stop()
-smile = cirpy.resolve(s, 'smiles')
+smile = cirpy.resolve(poll, 'smiles')
 
 if smile is None:
 	st.warning('Invalid chemical name or CAS number, please recheck it again or you can directly type the SMILES')
@@ -110,9 +123,6 @@ if smile is None:
 with st.expander("Show how to get SMILES of chemicals"):
 	st.write('You can get SMILES of any molecules from PubChem https://pubchem.ncbi.nlm.nih.gov/ by typing Chemical name or ACS number')
 
-
-
-	
 
 
 def load_test_model(opt, model_path=None):
@@ -157,6 +167,14 @@ def build_translator(opt, report_score, logger=None, out_file=None):
     return translator
 def main():
 	col1, col2, col3, col4= st.columns([2,2,1,1])
+	ros_smi = ros_smis[ros_name.index(ros_selct)]
+	methd_token = methd_tokens[acti_methd.index(methd_selct)]
+	pH = "".join(pH_value.split("."))
+	src = poll+"."+ros_smi+">"+prec+"<"+methd_token+"_"+pH
+	input = smi_tokenize(src)
+	with open("src.txt", "w") as file:
+		file.write(input)
+	
 	if col1.button('Get the prediction'):
 		model_path = download()
 		message_container = st.empty()
