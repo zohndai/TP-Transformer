@@ -96,15 +96,11 @@ ros_selct=st.selectbox('What ROSs?', ( "HO∙", "SO₄∙⁻","O₃", "¹O₂", 
 #select = st.radio("Please specify the property or activity you want to predict", ('OH radical', 'SO4- radical', 'Koc', 'Solubility','pKd','pIC50','CCSM_H','CCSM_Na', 'Lipo','FreeSolv' ))
 st.subheader('Please input the precursors of the ROSs')
 prec = st.text_input("Please offer the SMILES of precursors, e.g.'OO.[Fe+2]' for the fenton reagent H2O2/Fe2+ ", "O=[Fe]([O-])([O-2])[O-]")
-if prec !='':
-	prec_smile = cirpy.resolve(prec, 'smiles')
-	if prec_smile is None:
-		try:
-			prec_mol = Chem.MolFromSmiles(prec)
-			cano_prec_smile = Chem.MolToSmiels(prec_mol)
-		except:
-			st.warning('Invalid chemical name, CAS number or SMILES, please check it again')
-			st.stop()
+
+
+
+
+
 with st.expander("Show how to get SMILES of chemicals"):
 	st.write('You can get SMILES of any molecules from PubChem https://pubchem.ncbi.nlm.nih.gov/ by typing Chemical name or ACS number')
 
@@ -114,21 +110,9 @@ methd_selct=st.selectbox("what method?",("UV", "Heat", "Visible light", "Microwa
 st.subheader('Please input the reaction pH for pollutant degradation')
 pH_value = st.text_input("Keep two decimal places","7.00")
 
-
 st.subheader('What pollutant?')
 poll = st.text_input("Please offer Chemical name, CAS number, or SMILES of the pollutant, e.g. 'c1ccccc1' for benzene", "c1ccccc1")
-if poll =='':
-	st.warning('You should at least provide one chemical')
-	st.stop()
-else:
-	pol_smile = cirpy.resolve(poll, 'smiles')
-	if pol_smile is None:
-		try:
-			poll_mol = Chem.MolFromSmiles(poll)
-			cano_poll_smile = Chem.MolToSmiels(poll_mol)
-		except:
-			st.warning('Invalid chemical name, CAS number or SMILES, please check it again')
-			st.stop()
+
 
 
 
@@ -172,8 +156,30 @@ def build_translator(opt, report_score, logger=None, out_file=None):
         report_score=report_score, logger=logger, log_probs_out_file=log_probs_out_file, target_score_out_file=target_score_out_file,
     )
     return translator
-if True:
+while True:
 	col1, col2, col3, col4= st.columns([2,2,1,1])
+	if prec !='':
+		prec_smile = cirpy.resolve(prec, 'smiles')
+		if prec_smile is None:
+			try:
+				prec_mol = Chem.MolFromSmiles(prec)
+				cano_prec_smile = Chem.MolToSmiels(prec_mol)
+			except:
+				st.warning('Invalid chemical name, CAS number or SMILES of precursors, please check it again')
+				st.stop()
+	if poll =='':
+		st.warning('You should at least provide one chemical')
+		st.stop()
+	else:
+		pol_smile = cirpy.resolve(poll, 'smiles')
+		if pol_smile is None:
+			try:
+				poll_mol = Chem.MolFromSmiles(poll)
+				cano_poll_smile = Chem.MolToSmiels(poll_mol)
+			except:
+				st.warning('Invalid chemical name, CAS number or SMILES, please check it again')
+				st.stop()
+
 	
 	ros_smi = ros_smis[ros_name.index(ros_selct)]
 	methd_token = methd_tokens[acti_methd.index(methd_selct)]
