@@ -3,6 +3,7 @@ asttokens==2.0.5
 Brotli==1.0.9
 certifi==2024.7.4
 charset-normalizer==3.3.2
+cirpy
 colorama==0.4.6
 comm==0.2.1
 ConfigArgParse==1.4
