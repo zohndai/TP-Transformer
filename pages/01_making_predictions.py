@@ -173,7 +173,10 @@ if True:
 	ros_smi = ros_smis[ros_name.index(ros_selct)]
 	methd_token = methd_tokens[acti_methd.index(methd_selct)]
 	pH = "".join(pH_value.split("."))
-	cano_pollu = Chem.MolToSmiles(Chem.MolFromSmiles(poll))
+	try:
+		cano_pollu = Chem.MolToSmiles(Chem.MolFromSmiles(poll))
+	except:
+		st.warning("invalid pollutant SMILES, please check it again")
 	reactant = cano_pollu + "." + ros_smi
 	cano_prec = Chem.MolToSmiles(Chem.MolFromSmiles(prec))
 	src = reactant+">"+cano_prec+"<"+methd_token+"_"+pH
