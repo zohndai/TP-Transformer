@@ -197,11 +197,11 @@ def main():
 	dp_smis = pd.read_csv(opt_tsl.output,header=None)
 	smis_li=["".join(dp_smi.split(" ")) for dp_smi in dp_smis[0]]
 	message_container = st.empty()
-	message_container.text(f"Prediction result:\n
- \n top1:{smis_li[0]};
- \n top2:{smis_li[1]};
- \n top3:{smis_li[2]};
- \n top4:{smis_li[3]};
+	message_container.text(f"Prediction result:
+ \n top1:{smis_li[0]};\
+ \n top2:{smis_li[1]};\
+ \n top3:{smis_li[2]};\
+ \n top4:{smis_li[3]};\
  \n top5:{smis_li[4]}")
 	return
 
