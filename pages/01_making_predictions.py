@@ -102,7 +102,7 @@ if prec_smile is None:
 	st.stop()
 
 st.subheader("Please select the method for extertal energy input for the ROSs generation", "UV")
-methd_selct=st.selectbox("what method?",("UV", "Heat", "Visible light", "Microwave", "Electricity", "Ultrasound", "Sunlight"))
+methd_selct=st.selectbox("what method?",("UV", "Heat", "Visible light", "Microwave", "Electricity", "Ultrasound", "Sunlight", "No"))
 
 st.subheader('Please input the reaction pH for pollutant degradation')
 ph_value = st.text_input("Keep two decimal places","7.00")
