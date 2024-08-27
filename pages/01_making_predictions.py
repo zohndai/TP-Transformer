@@ -166,7 +166,7 @@ def build_translator(opt, report_score, logger=None, out_file=None):
         report_score=report_score, logger=logger, log_probs_out_file=log_probs_out_file, target_score_out_file=target_score_out_file,
     )
     return translator
-def main():
+if Ture:
 	os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 	col1, col2, col3, col4= st.columns([2,2,1,1])
 	
@@ -190,12 +190,12 @@ def main():
 		opts.config_opts(parser_tsl)
 		opts.translate_opts(parser_tsl)
 		args_tsl = ['-model', model_path, \
-		            '-src', 'src.txt', \
-		            '-output', 'predictions.txt', \
-		            '-n_best', '10', \
-		            '-beam_size', '10', \
-		            '-max_length', '3000', \
-		            '-batch_size', '64']
+			    '-src', 'src.txt', \
+			    '-output', 'predictions.txt', \
+			    '-n_best', '10', \
+			    '-beam_size', '10', \
+			    '-max_length', '3000', \
+			    '-batch_size', '64']
 		opt_tsl = parser_tsl.parse_args(args_tsl)
 		ArgumentParser.validate_translate_opts(opt_tsl)
 		#logg1er = init_logger(opt_tsl.log_file)
@@ -222,8 +222,4 @@ def main():
 	smis_li=["".join(dp_smi.split(" ")) for dp_smi in dp_smis[0]]
 	message_container = st.empty()
 	message_container.text(f"top1:{smis_li[0]},top2:{smis_li[1]},top3:{smis_li[2]},top4:{smis_li[3]},top5:{smis_li[4]},top6:{smis_li[5]},\
- top7:{smis_li[6]},top8:{smis_li[7]},top9:{smis_li[8]},top10:{smis_li[9]}")
-	return
-
-if __name__ == '__main__':
-	main()
+	top7:{smis_li[6]},top8:{smis_li[7]},top9:{smis_li[8]},top10:{smis_li[9]}")
