@@ -28,7 +28,7 @@ st.subheader('Please input the precursors of the ROSs')
 st.text_input("Please offer the SMILES of precursors, e.g.'OO.[Fe+2]' for the fenton reagent H2O2/Fe2+ ", "OO.[Fe+2]")
 
 st.subheader("Please select the method for extertal energy input for the ROSs generation", "UV")
-st.selectbox("what method?",("UV", "Heat", "Visible light", "Micro wave", "Electricity", "Ultrasound", "Sunlight"))
+st.selectbox("what method?",("UV", "Heat", "Visible light", "Microwave", "Electricity", "Ultrasound", "Sunlight"))
 
 st.subheader('Please input the reaction pH for pollutant degradation')
 st.text_input("keep two decimal places","7.00")
@@ -50,51 +50,15 @@ with st.expander("Show how to get SMILES of chemicals"):
 	st.write('You can get SMILES of any molecules from PubChem https://pubchem.ncbi.nlm.nih.gov/ by typing Chemical name or ACS number')
 
 
-ros_selec = ["HO∙", "SO₄∙⁻","O₃", "¹O₂",  "Fe(VI)", "O₂∙⁻", "MnO₄⁻", "ClO⁻","HClO", "Cl₂","Cl∙","CO₃∙⁻","Cl₂∙⁻","C₂H₂O₃∙", \
+ros_name = ["HO∙", "SO₄∙⁻","O₃", "¹O₂",  "Fe(VI)", "O₂∙⁻", "MnO₄⁻", "ClO⁻","HClO", "Cl₂","Cl∙","CO₃∙⁻","Cl₂∙⁻","C₂H₃O₃∙", \
              "Cu(III)","Fe(V)",  "NO₂∙", "Mn(V)", "HSO₄∙", "O₂", "BrO⁻","NO∙", "ClO∙","Fe(IV)","Br∙", "IO⁻","C₂H₃O₂∙",\
              "HSO₅⁻", "ClO₂∙", "Br₂","HOBr","HO₂⁻","I∙", "NO₃∙", "IO₃∙⁻", \
            "Fe(III)", "S₂O₈∙⁻","HCO₃∙", "SO₃∙⁻"]
-ros_smi = ['[OH]', '[O]S(=O)(=O)[O-]', 'O=[O+][O-]',
-	   'BrBr',
- 'CC(=O)O[O]',
- 'CC([O])=O',
- 'ClCl',
- 'Cl[Cl-]',
- 'O',
- 'O=N[O-]',
- 'O=O',
- 'O=S(=O)([O-])OO',
- 'O=[Fe](=O)([O-])O',
- 'O=[Fe](=O)([O-])[O-]',
- 'O=[Fe]([O-])([O-])[O-]',
- 'O=[Mn](=O)(=O)[O-]',
- 'O=[N+][O-]',
- 
- 'OBr',
- 'OCl',
- 'OO1',
- '[Br]',
- '[Cl]',
- '[Cu+3]',
- '[I]',
- '[N]=O',
- '[O-]Br',
- '[O-]Cl',
- '[O-]I',
- '[O-]O',
- '[O-][Fe]([O-])([O-])[O-]',
- '[O-][I+2]([O-])[O-]',
- '[OH]',
- '[O]C(=O)O',
- '[O]C(=O)[O-]',
- '[O]Cl',
- '[O]N=O',
- '[O]S(=O)(=O)O',
- '[O]S(=O)(=O)OOS(=O)(=O)[O-]',
- '[O]S(=O)[O-]',
- '[O][Cl+][O-]',
- '[O][N+](=O)[O-]',
- '[O][O-]',]
+ros_smi = ['[OH]', '[O]S(=O)(=O)[O-]', 'O=[O+][O-]','OO1', 'O=[Fe](=O)([O-])[O-]', '[O][O-]', 'O=[Mn](=O)(=O)[O-]','[O-]Cl','OCl', 'ClCl', '[Cl]', '[O]C(=O)[O-]','Cl[Cl-]', 'CC(=O)O[O]',\
+	    '[Cu+3]','O=[Fe]([O-])([O-])[O-]', '[O]N=O','[O-][Mn]([O-])([O-])=O', '[O]S(=O)(=O)O', 'O=O', '[O-]Br','[N]=O', '[O]Cl','[O-][Fe]([O-])([O-])[O-]','[Br]','[O-]I','CC([O])=O',\
+	    'O=S(=O)([O-])OO', '[O][Cl+][O-]','BrBr', 'OBr', '[O-]O', '[I]', '[O][N+](=O)[O-]', '[O-][I+2]([O-])[O-]',\
+	   '[Fe+3]', '[O]S(=O)(=O)OOS(=O)(=O)[O-]','[O]C(=O)O', '[O]S(=O)[O-]']
+
 if select=='OH radical':
 	ros_mis = '[OH]'
 
