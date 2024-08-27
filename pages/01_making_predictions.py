@@ -197,19 +197,7 @@ def main():
 	dp_smis = pd.read_csv(opt_tsl.output,header=None)
 	smis_li=["".join(dp_smi.split(" ")) for dp_smi in dp_smis[0]]
 	message_container = st.empty()
-	message_container.text(f"Prediction result:")
-	time.sleep(4)
-	message_container.text(f"top1:{smis_li[0]}")
-	time.sleep(4)
-	message_container.text(f"top2:{smis_li[1]}")
-	time.sleep(4)
-	message_container.text(f"top3:{smis_li[2]}")
-	time.sleep(4)
-	message_container.text(f"top4:{smis_li[3]}")
-	time.sleep(4)
-	message_container.text(f"top5:{smis_li[4]}")
-	time.sleep(4)
-	message_container.text(f"Predcition completed!")
+	message_container.text(f"Prediction result:top1-{smis_li[0]},top2-{smis_li[1]},top3-{smis_li[2]},top4-{smis_li[3]},top5-{smis_li[4]}   Prediction completed!")
 	return
 
 if __name__ == '__main__':
