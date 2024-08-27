@@ -32,6 +32,7 @@ import onmt.model_builder
 import onmt.translate
 from onmt.utils.misc import split_corpus
 import re
+import os
 
 def smi_tokenize(smi):
     pattern = "(\[[^\]]+]|Br?|Cl?|N|O|S|P|F|I|b|c|n|o|s|p|\(|\)|\.|=|#|-|\+|\\\\|\/|:|~|@|\?|>|\*|\$|\%[0-9]{2}|[0-9]|UV|MW|VL|hv|E|US|heat|<|_)"
@@ -166,6 +167,7 @@ def build_translator(opt, report_score, logger=None, out_file=None):
     )
     return translator
 def main():
+	os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 	col1, col2, col3, col4= st.columns([2,2,1,1])
 	
 	ros_smi = ros_smis[ros_name.index(ros_selct)]
@@ -219,7 +221,8 @@ def main():
 	dp_smis = pd.read_csv(opt_tsl.output,header=None)
 	smis_li=["".join(dp_smi.split(" ")) for dp_smi in dp_smis[0]]
 	message_container = st.empty()
-	message_container.text(f"top1:{smis_li[0]},top2:{smis_li[1]},top3:{smis_li[2]},top4:{smis_li[3]},top5:{smis_li[4]},top6:{smis_li[5]},top7:{smis_li[6]},top8:{smis_li[7]},top9:{smis_li[8]},top10:{smis_li[9]},")
+	message_container.text(f"top1:{smis_li[0]},top2:{smis_li[1]},top3:{smis_li[2]},top4:{smis_li[3]},top5:{smis_li[4]},top6:{smis_li[5]},\
+ top7:{smis_li[6]},top8:{smis_li[7]},top9:{smis_li[8]},top10:{smis_li[9]}")
 	return
 
 if __name__ == '__main__':
