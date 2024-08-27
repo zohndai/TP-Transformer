@@ -200,26 +200,26 @@ if True:
 		ArgumentParser.validate_translate_opts(opt_tsl)
 		#logg1er = init_logger(opt_tsl.log_file)
 	#model_path = opt_tsl.models[0]
-	checkpoint = torch.load(model_path, map_location=lambda storage, loc: storage)
-	vocab = checkpoint['vocab']
-	translator = build_translator(opt_tsl, report_score=True)
-	src_shards_tsl = split_corpus(opt_tsl.src, opt_tsl.shard_size) # list(islice(f, shard_size))
-	tgt_shards_tsl = split_corpus(opt_tsl.tgt, opt_tsl.shard_size)
-	shard_pairs_tsl = zip(src_shards_tsl, tgt_shards_tsl)
-	for i, (src_shard_tsl, tgt_shard_tsl) in enumerate(shard_pairs_tsl): # 0, ([src], None)
-		#logger.info("Translating shard %d." % i) # 只有0
-		translator.translate(
-		    src=src_shard_tsl,
-		    tgt=tgt_shard_tsl,
-		    src_dir=opt_tsl.src_dir, #''
-		    batch_size=opt_tsl.batch_size, # 64
-		    batch_type=opt_tsl.batch_type, # sents
-		    attn_debug=opt_tsl.attn_debug, # False
-		    align_debug=opt_tsl.align_debug # False
-		)
-	
-	dp_smis = pd.read_csv(opt_tsl.output,header=None)
-	smis_li=["".join(dp_smi.split(" ")) for dp_smi in dp_smis[0]]
-	message_container = st.empty()
-	message_container.text(f"top1:{smis_li[0]},top2:{smis_li[1]},top3:{smis_li[2]},top4:{smis_li[3]},top5:{smis_li[4]},top6:{smis_li[5]},\
-	top7:{smis_li[6]},top8:{smis_li[7]},top9:{smis_li[8]},top10:{smis_li[9]}")
+		checkpoint = torch.load(model_path, map_location=lambda storage, loc: storage)
+		vocab = checkpoint['vocab']
+		translator = build_translator(opt_tsl, report_score=True)
+		src_shards_tsl = split_corpus(opt_tsl.src, opt_tsl.shard_size) # list(islice(f, shard_size))
+		tgt_shards_tsl = split_corpus(opt_tsl.tgt, opt_tsl.shard_size)
+		shard_pairs_tsl = zip(src_shards_tsl, tgt_shards_tsl)
+		for i, (src_shard_tsl, tgt_shard_tsl) in enumerate(shard_pairs_tsl): # 0, ([src], None)
+			#logger.info("Translating shard %d." % i) # 只有0
+			translator.translate(
+			    src=src_shard_tsl,
+			    tgt=tgt_shard_tsl,
+			    src_dir=opt_tsl.src_dir, #''
+			    batch_size=opt_tsl.batch_size, # 64
+			    batch_type=opt_tsl.batch_type, # sents
+			    attn_debug=opt_tsl.attn_debug, # False
+			    align_debug=opt_tsl.align_debug # False
+			)
+		
+		dp_smis = pd.read_csv(opt_tsl.output,header=None)
+		smis_li=["".join(dp_smi.split(" ")) for dp_smi in dp_smis[0]]
+		message_container = st.empty()
+		message_container.text(f"top1:{smis_li[0]},top2:{smis_li[1]},top3:{smis_li[2]},top4:{smis_li[3]},top5:{smis_li[4]},top6:{smis_li[5]},\
+		top7:{smis_li[6]},top8:{smis_li[7]},top9:{smis_li[8]},top10:{smis_li[9]}")
