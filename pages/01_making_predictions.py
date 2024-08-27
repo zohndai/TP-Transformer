@@ -11,7 +11,7 @@ import cirpy
 
 st.set_page_config(
     page_title="Welcome to DP-Transformer",    
-    page_icon="💧",        
+    page_icon="predic.jpg",        
     layout="wide",                
     initial_sidebar_state="auto"
 )
@@ -51,7 +51,47 @@ ros_selec = ["HO∙", "SO₄∙⁻","O₃", "¹O₂",  "Fe(VI)", "O₂∙⁻", "
              "Cu(III)","Fe(V)",  "NO₂∙", "Mn(V)", "HSO₄∙", "O₂", "BrO⁻","NO∙", "ClO∙","Fe(IV)","Br∙", "IO⁻","C₂H₃O₂∙",\
              "HSO₅⁻", "ClO₂∙", "Br₂","HOBr","HO₂⁻","I∙", "NO₃∙", "IO₃∙⁻", \
            "Fe(III)", "S₂O₈∙⁻","HCO₃∙", "SO₃∙⁻"]
-ros_smi = ['[OH]', ]
+ros_smi = ['[OH]', '[O]S(=O)(=O)[O-]', 'O=[O+][O-]',
+	   'BrBr',
+ 'CC(=O)O[O]',
+ 'CC([O])=O',
+ 'ClCl',
+ 'Cl[Cl-]',
+ 'O',
+ 'O=N[O-]',
+ 'O=O',
+ 'O=S(=O)([O-])OO',
+ 'O=[Fe](=O)([O-])O',
+ 'O=[Fe](=O)([O-])[O-]',
+ 'O=[Fe]([O-])([O-])[O-]',
+ 'O=[Mn](=O)(=O)[O-]',
+ 'O=[N+][O-]',
+ 
+ 'OBr',
+ 'OCl',
+ 'OO1',
+ '[Br]',
+ '[Cl]',
+ '[Cu+3]',
+ '[I]',
+ '[N]=O',
+ '[O-]Br',
+ '[O-]Cl',
+ '[O-]I',
+ '[O-]O',
+ '[O-][Fe]([O-])([O-])[O-]',
+ '[O-][I+2]([O-])[O-]',
+ '[OH]',
+ '[O]C(=O)O',
+ '[O]C(=O)[O-]',
+ '[O]Cl',
+ '[O]N=O',
+ '[O]S(=O)(=O)O',
+ '[O]S(=O)(=O)OOS(=O)(=O)[O-]',
+ '[O]S(=O)[O-]',
+ '[O][Cl+][O-]',
+ '[O][N+](=O)[O-]',
+ '[O][O-]',]
 if select=='OH radical':
 	ros_mis = '[OH]'
 
