@@ -99,8 +99,13 @@ prec = st.text_input("Please offer the SMILES of precursors, e.g.'OO.[Fe+2]' for
 if prec !='':
 	prec_smile = cirpy.resolve(prec, 'smiles')
 	if prec_smile is None:
-		st.warning('Invalid chemical name or CAS number, please recheck it again or you can directly type the SMILES')
-		st.stop()
+		try:
+			Chem.MolToSmiels(Chem.MolFromSmiles(poll))
+		except:
+			st.warning('Invalid chemical name, CAS number or SMILES, please check it again')
+			st.stop()
+with st.expander("Show how to get SMILES of chemicals"):
+	st.write('You can get SMILES of any molecules from PubChem https://pubchem.ncbi.nlm.nih.gov/ by typing Chemical name or ACS number')
 
 st.subheader("Please select the method for extertal energy input for the ROSs generation", "UV")
 methd_selct=st.selectbox("what method?",("UV", "Heat", "Visible light", "Microwave", "Electricity", "Ultrasound", "Sunlight", "No"))
@@ -117,10 +122,11 @@ if poll =='':
 	st.stop()
 pol_smile = cirpy.resolve(poll, 'smiles')
 if pol_smile is None:
-	st.warning('Invalid chemical name or CAS number, please recheck it again or you can directly type the SMILES')
-	st.stop()
-with st.expander("Show how to get SMILES of chemicals"):
-	st.write('You can get SMILES of any molecules from PubChem https://pubchem.ncbi.nlm.nih.gov/ by typing Chemical name or ACS number')
+	try:
+		Chem.MolToSmiels(Chem.MolFromSmiles(poll))
+	except:
+		st.warning('Invalid chemical name, CAS number or SMILES, please check it again')
+		st.stop()
 
 
 
