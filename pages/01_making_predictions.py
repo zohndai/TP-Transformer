@@ -6,8 +6,6 @@ from rdkit import Chem
 from rdkit.Chem import AllChem
 import cirpy
 import torch
-import models
-from gdown_model import download
 #from rdkit.Chem import Draw
 #import matplotlib.pyplot as plt
 
@@ -64,4 +62,4 @@ with st.expander("Show how to get SMILES of chemicals"):
 	st.write('You can get SMILES of any molecules from PubChem https://pubchem.ncbi.nlm.nih.gov/ by typing Chemical name or ACS number')
 
 def run():
-	model_path = download()
+	model_path = gdown_model.download()
