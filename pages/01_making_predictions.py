@@ -200,7 +200,7 @@ def main():
 		ArgumentParser.validate_translate_opts(opt_tsl)
 		#logg1er = init_logger(opt_tsl.log_file)
 	#model_path = opt_tsl.models[0]
-	checkpoint = torch.load(model_path, map_location=lambda storage, loc: storage)
+	checkpoint = torch.load("models/47700_step_2024_0826.pt", map_location=lambda storage, loc: storage)
 	vocab = checkpoint['vocab']
 	translator = build_translator(opt_tsl, report_score=True)
 	src_shards_tsl = split_corpus(opt_tsl.src, opt_tsl.shard_size) # list(islice(f, shard_size))
