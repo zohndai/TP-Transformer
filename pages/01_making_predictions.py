@@ -78,10 +78,10 @@ ros_name = ["HO∙", "SO₄∙⁻","O₃", "¹O₂",  "Fe(VI)", "O₂∙⁻", "M
              "Cu(III)","Fe(V)",  "NO₂∙", "Mn(V)", "HSO₄∙", "O₂", "BrO⁻","NO∙", "ClO∙","Fe(IV)","Br∙", "IO⁻","C₂H₃O₂∙",\
              "HSO₅⁻", "ClO₂∙", "Br₂","HOBr","HO₂⁻","I∙", "NO₃∙", "IO₃∙⁻", \
            "Fe(III)", "S₂O₈∙⁻","HCO₃∙", "SO₃∙⁻","Unkown"]
-ros_smis = ['[OH]', '[O]S(=O)(=O)[O-]', 'O=[O+][O-]','OO1', 'O=[Fe](=O)([O-])[O-]', '[O][O-]', 'O=[Mn](=O)(=O)[O-]','[O-]Cl','OCl', 'ClCl', '[Cl]', '[O]C(=O)[O-]','Cl[Cl-]', 'CC(=O)O[O]',\
-	    '[Cu+3]','O=[Fe]([O-])([O-])[O-]', '[O]N=O','[O-][Mn]([O-])([O-])=O', '[O]S(=O)(=O)O', 'O=O', '[O-]Br','[N]=O', '[O]Cl','[O-][Fe]([O-])([O-])[O-]','[Br]','[O-]I','CC([O])=O',\
-	    'O=S(=O)([O-])OO', '[O][Cl+][O-]','BrBr', 'OBr', '[O-]O', '[I]', '[O][N+](=O)[O-]', '[O-][I+2]([O-])[O-]',\
-	   '[Fe+3]', '[O]S(=O)(=O)OOS(=O)(=O)[O-]','[O]C(=O)O', '[O]S(=O)[O-]', '']
+ros_smis = ['[OH]','[O]S(=O)(=O)[O-]','O=[O+][O-]','OO1','O=[Fe](=O)([O-])[O-]','[O][O-]','O=[Mn](=O)(=O)[O-]','[O-]Cl','OCl','ClCl','[Cl]','[O]C(=O)[O-]','Cl[Cl-]',\
+ 'CC(=O)O[O]','[Cu+3]','O=[Fe]([O-])([O-])[O-]','[O]N=O','O=[Mn]([O-])([O-])[O-]','[O]S(=O)(=O)O','O=O','[O-]Br','[N]=O','[O]Cl','[O-][Fe]([O-])([O-])[O-]','[Br]',\
+ '[O-]I','CC([O])=O','O=S(=O)([O-])OO','[O][Cl+][O-]','BrBr','OBr','[O-]O','[I]','[O][N+](=O)[O-]','[O-][I+2]([O-])[O-]','[Fe+3]','[O]S(=O)(=O)OOS(=O)(=O)[O-]',\
+ '[O]C(=O)O','[O]S(=O)[O-]','']
 
 
 acti_methd=["UV", "Heat", "Visible light", "Microwave", "Electricity", "Ultrasound", "Sunlight", "No"]
@@ -171,7 +171,8 @@ def main():
 	ros_smi = ros_smis[ros_name.index(ros_selct)]
 	methd_token = methd_tokens[acti_methd.index(methd_selct)]
 	pH = "".join(pH_value.split("."))
-	reactant = Chem.MolToSmiles(Chem.MolFromSmiles(poll+"."+ros_smi))
+	cano_pollu = Chem.MolToSmiles(Chem.MolFromSmiles(poll))
+	reactant = cano_pollu + "." + ros_smi
 	cano_prec = Chem.MolToSmiles(Chem.MolFromSmiles(prec))
 	src = reactant+">"+cano_prec+"<"+methd_token+"_"+pH
 	input = smi_tokenize(src)
