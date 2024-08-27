@@ -184,7 +184,7 @@ def main():
 	if col1.button('Get the prediction'):
 		model_path = download()
 		message_container = st.empty()
-		message_container.text(model_path)
+		message_container.text("model version:2024-08-26")
 	
 		parser_tsl = ArgumentParser(description="translate.py")
 		opts.config_opts(parser_tsl)
@@ -207,7 +207,7 @@ def main():
 	tgt_shards_tsl = split_corpus(opt_tsl.tgt, opt_tsl.shard_size)
 	shard_pairs_tsl = zip(src_shards_tsl, tgt_shards_tsl)
 	for i, (src_shard_tsl, tgt_shard_tsl) in enumerate(shard_pairs_tsl): # 0, ([src], None)
-		logger.info("Translating shard %d." % i) # 只有0
+		#logger.info("Translating shard %d." % i) # 只有0
 		translator.translate(
 		    src=src_shard_tsl,
 		    tgt=tgt_shard_tsl,
