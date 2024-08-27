@@ -167,10 +167,13 @@ def build_translator(opt, report_score, logger=None, out_file=None):
     return translator
 def main():
 	col1, col2, col3, col4= st.columns([2,2,1,1])
+	
 	ros_smi = ros_smis[ros_name.index(ros_selct)]
 	methd_token = methd_tokens[acti_methd.index(methd_selct)]
 	pH = "".join(pH_value.split("."))
-	src = poll+"."+ros_smi+">"+prec+"<"+methd_token+"_"+pH
+	reactant = Chem.MolToSmiles(Chem.MolFromSmiles(poll+"."+ros_smi))
+	cano_prec = Chem.MolToSmiles(Chem.MolFromSmiles(prec))
+	src = reactant+">"+cano_prec+"<"+methd_token+"_"+pH
 	input = smi_tokenize(src)
 	with open("src.txt", "w") as file:
 		file.write(input)
