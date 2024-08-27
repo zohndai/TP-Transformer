@@ -34,14 +34,14 @@ st.text_input("Please offer Chemical name, CAS number, or SMILES of the pollutan
 
 
 st.subheader('What is contaminant?')
-    s = st.text_input('Please offer Chemical name, CAS number, or SMILES of contaminat', 'CCCCC')
-	if s =='':
-		st.warning('You should at least provide one chemical')
-		st.stop()
-	smile = cirpy.resolve(s, 'smiles')
-	if smile is None:
-		st.warning('Invalid chemical name or CAS number, please recheck it again or you can directly type the SMILES')
-		st.stop()
-		
-	with st.expander("Show how to get SMILES of chemicals"):
-    		st.write('You can get SMILES of any molecules from PubChem https://pubchem.ncbi.nlm.nih.gov/ by typing Chemical name or ACS number')
+s = st.text_input('Please offer Chemical name, CAS number, or SMILES of contaminat', 'CCCCC')
+if s =='':
+	st.warning('You should at least provide one chemical')
+	st.stop()
+smile = cirpy.resolve(s, 'smiles')
+if smile is None:
+	st.warning('Invalid chemical name or CAS number, please recheck it again or you can directly type the SMILES')
+	st.stop()
+	
+with st.expander("Show how to get SMILES of chemicals"):
+	st.write('You can get SMILES of any molecules from PubChem https://pubchem.ncbi.nlm.nih.gov/ by typing Chemical name or ACS number')
