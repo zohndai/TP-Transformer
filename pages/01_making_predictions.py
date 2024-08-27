@@ -116,11 +116,13 @@ with st.expander("Show how to get SMILES of chemicals"):
 col1, col2, col3, col4= st.columns([2,2,1,1])
 if col1.button('Get the prediction'):
 	model_path = download()
+	message_container = st.empty()
+	message_container.text(model_path)
 
 parser_tsl = ArgumentParser(description="translate.py")
 opts.config_opts(parser_tsl)
 opts.translate_opts(parser_tsl)
-args_tsl = ['-model', model_path , \
+args_tsl = ['-model', model_path, \
             '-src', 'src.txt', \
             '-output', 'predictions.txt', \
             '-n_best', '5', \
