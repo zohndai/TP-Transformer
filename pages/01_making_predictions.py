@@ -16,9 +16,20 @@ st.set_page_config(
     initial_sidebar_state="auto"
 )
 
+ros_name = ["HO∙", "SO₄∙⁻","O₃", "¹O₂",  "Fe(VI)", "O₂∙⁻", "MnO₄⁻", "ClO⁻","HClO", "Cl₂","Cl∙","CO₃∙⁻","Cl₂∙⁻","C₂H₃O₃∙", \
+             "Cu(III)","Fe(V)",  "NO₂∙", "Mn(V)", "HSO₄∙", "O₂", "BrO⁻","NO∙", "ClO∙","Fe(IV)","Br∙", "IO⁻","C₂H₃O₂∙",\
+             "HSO₅⁻", "ClO₂∙", "Br₂","HOBr","HO₂⁻","I∙", "NO₃∙", "IO₃∙⁻", \
+           "Fe(III)", "S₂O₈∙⁻","HCO₃∙", "SO₃∙⁻","Unkown"]
+ros_smi = ['[OH]', '[O]S(=O)(=O)[O-]', 'O=[O+][O-]','OO1', 'O=[Fe](=O)([O-])[O-]', '[O][O-]', 'O=[Mn](=O)(=O)[O-]','[O-]Cl','OCl', 'ClCl', '[Cl]', '[O]C(=O)[O-]','Cl[Cl-]', 'CC(=O)O[O]',\
+	    '[Cu+3]','O=[Fe]([O-])([O-])[O-]', '[O]N=O','[O-][Mn]([O-])([O-])=O', '[O]S(=O)(=O)O', 'O=O', '[O-]Br','[N]=O', '[O]Cl','[O-][Fe]([O-])([O-])[O-]','[Br]','[O-]I','CC([O])=O',\
+	    'O=S(=O)([O-])OO', '[O][Cl+][O-]','BrBr', 'OBr', '[O-]O', '[I]', '[O][N+](=O)[O-]', '[O-][I+2]([O-])[O-]',\
+	   '[Fe+3]', '[O]S(=O)(=O)OOS(=O)(=O)[O-]','[O]C(=O)O', '[O]S(=O)[O-]'，'']
+
+acti_methd=["UV", "Heat", "Visible light", "Microwave", "Electricity", "Ultrasound", "Sunlight", "No"]
+methd_token=["UV", "heat", "VL", "MW", "E", "US", "SL", ""]
 
 st.subheader('Please select the ROSs that drive the pollutant degradation')
-select=st.selectbox('What ROSs?', ("HO∙", "SO₄∙⁻","O₃", "¹O₂",  "Fe(VI)", "O₂∙⁻", "MnO₄⁻", "ClO⁻","HClO", "Cl₂","Cl∙","CO₃∙⁻","Cl₂∙⁻","C₂H₂O₃∙", \
+select=st.selectbox('What ROSs?', ( "HO∙", "SO₄∙⁻","O₃", "¹O₂",  "Fe(VI)", "O₂∙⁻", "MnO₄⁻", "ClO⁻","HClO", "Cl₂","Cl∙","CO₃∙⁻","Cl₂∙⁻","C₂H₃O₃∙", \
              "Cu(III)","Fe(V)",  "NO₂∙", "Mn(V)", "HSO₄∙", "O₂", "BrO⁻","NO∙", "ClO∙","Fe(IV)","Br∙", "IO⁻","C₂H₃O₂∙",\
              "HSO₅⁻", "ClO₂∙", "Br₂","HOBr","HO₂⁻","I∙", "NO₃∙", "IO₃∙⁻", \
            "Fe(III)", "S₂O₈∙⁻","HCO₃∙", "SO₃∙⁻", "Unkown"))
@@ -50,14 +61,7 @@ with st.expander("Show how to get SMILES of chemicals"):
 	st.write('You can get SMILES of any molecules from PubChem https://pubchem.ncbi.nlm.nih.gov/ by typing Chemical name or ACS number')
 
 
-ros_name = ["HO∙", "SO₄∙⁻","O₃", "¹O₂",  "Fe(VI)", "O₂∙⁻", "MnO₄⁻", "ClO⁻","HClO", "Cl₂","Cl∙","CO₃∙⁻","Cl₂∙⁻","C₂H₃O₃∙", \
-             "Cu(III)","Fe(V)",  "NO₂∙", "Mn(V)", "HSO₄∙", "O₂", "BrO⁻","NO∙", "ClO∙","Fe(IV)","Br∙", "IO⁻","C₂H₃O₂∙",\
-             "HSO₅⁻", "ClO₂∙", "Br₂","HOBr","HO₂⁻","I∙", "NO₃∙", "IO₃∙⁻", \
-           "Fe(III)", "S₂O₈∙⁻","HCO₃∙", "SO₃∙⁻"]
-ros_smi = ['[OH]', '[O]S(=O)(=O)[O-]', 'O=[O+][O-]','OO1', 'O=[Fe](=O)([O-])[O-]', '[O][O-]', 'O=[Mn](=O)(=O)[O-]','[O-]Cl','OCl', 'ClCl', '[Cl]', '[O]C(=O)[O-]','Cl[Cl-]', 'CC(=O)O[O]',\
-	    '[Cu+3]','O=[Fe]([O-])([O-])[O-]', '[O]N=O','[O-][Mn]([O-])([O-])=O', '[O]S(=O)(=O)O', 'O=O', '[O-]Br','[N]=O', '[O]Cl','[O-][Fe]([O-])([O-])[O-]','[Br]','[O-]I','CC([O])=O',\
-	    'O=S(=O)([O-])OO', '[O][Cl+][O-]','BrBr', 'OBr', '[O-]O', '[I]', '[O][N+](=O)[O-]', '[O-][I+2]([O-])[O-]',\
-	   '[Fe+3]', '[O]S(=O)(=O)OOS(=O)(=O)[O-]','[O]C(=O)O', '[O]S(=O)[O-]']
+
 
 if select=='OH radical':
 	ros_mis = '[OH]'
