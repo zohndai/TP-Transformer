@@ -139,7 +139,7 @@ if True:
 	#st.write('You selected:', ros_selct)
 	#select = st.radio("Please specify the property or activity you want to predict", ('OH radical', 'SO4- radical', 'Koc', 'Solubility','pKd','pIC50','CCSM_H','CCSM_Na', 'Lipo','FreeSolv' ))
 	st.subheader('Please input the precursors of the ROSs')
-	prec = st.text_input("Please offer the SMILES of precursors, e.g.'OO.[Fe+2]' for the fenton reagent H2O2/Fe2+ ", "OO.[Fe+2]")
+	prec = st.text_input("Please offer the Chemical name, CAS number or SMILES of precursors, e.g.'OO.[Fe+2]' for the fenton reagent H2O2/Fe2+ ", "OO.[Fe+2]")
 	if prec !='':
 		prec_smile = cirpy.resolve(prec, 'smiles')
 		if prec_smile is None:
@@ -155,7 +155,7 @@ if True:
 	pH_value = st.text_input("Keep two decimal places","7.00")
 	
 	st.subheader('What pollutant?')
-	poll = st.text_input("Please offer Chemical name, CAS number, or SMILES of the pollutant, e.g. 'c1ccccc1' for benzene", "c1ccccc1")
+	poll = st.text_input("Please offer the Chemical name, CAS number or SMILES of the pollutant, e.g. 'c1ccccc1' for benzene", "c1ccccc1")
 	if poll =='':
 		st.warning('You should at least provide one chemical')
 		st.stop()
