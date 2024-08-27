@@ -95,7 +95,7 @@ ros_selct=st.selectbox('What ROSs?', ( "HO∙", "SO₄∙⁻","O₃", "¹O₂", 
 #st.write('You selected:', ros_selct)
 #select = st.radio("Please specify the property or activity you want to predict", ('OH radical', 'SO4- radical', 'Koc', 'Solubility','pKd','pIC50','CCSM_H','CCSM_Na', 'Lipo','FreeSolv' ))
 st.subheader('Please input the precursors of the ROSs')
-prec = st.text_input("Please offer the SMILES of precursors, e.g.'OO.[Fe+2]' for the fenton reagent H2O2/Fe2+ ", "OO.[Fe+2]")
+prec = st.text_input("Please offer the SMILES of precursors, e.g.'OO.[Fe+2]' for the fenton reagent H2O2/Fe2+ ", "O=[Fe]([O-])([O-2])[O-]")
 if prec !='':
 	prec_smile = cirpy.resolve(prec, 'smiles')
 	if prec_smile is None:
