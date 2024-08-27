@@ -199,9 +199,9 @@ def main():
 	message_container = st.empty()
 	message_container.text(f"Prediction result:")
 	message_container.text(f"top1:{smis_li[0]}")
- 	message_container.text(f"top2:{smis_li[1]}")
+	message_container.text(f"top2:{smis_li[1]}")
 	message_container.text(f"top3:{smis_li[2]}")
- 	message_container.text(f"top4:{smis_li[3]}")
+	message_container.text(f"top4:{smis_li[3]}")
 	message_container.text(f"top5:{smis_li[4]}")
 	return
 
