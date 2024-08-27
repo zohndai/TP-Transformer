@@ -11,7 +11,7 @@ import cirpy
 
 st.set_page_config(
     page_title="Welcome to DP-Transformer",    
-    page_icon="predic.jpg",        
+    page_icon="log.ico",        
     layout="wide",                
     initial_sidebar_state="auto"
 )
