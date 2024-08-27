@@ -177,6 +177,7 @@ if True:
 		cano_pollu = Chem.MolToSmiles(Chem.MolFromSmiles(poll))
 	except:
 		st.warning("invalid pollutant SMILES, please check it again")
+		st.stop()
 	reactant = cano_pollu + "." + ros_smi
 	cano_prec = Chem.MolToSmiles(Chem.MolFromSmiles(prec))
 	src = reactant+">"+cano_prec+"<"+methd_token+"_"+pH
