@@ -162,8 +162,7 @@ while True:
 		prec_smile = cirpy.resolve(prec, 'smiles')
 		if prec_smile is None:
 			try:
-				prec_mol = Chem.MolFromSmiles(prec)
-				cano_prec_smile = Chem.MolToSmiels(prec_mol)
+				cano_prec_smiles = Chem.MolToSmiles(Chem.MolFromSmiles(prec))
 			except:
 				st.warning('Invalid chemical name, CAS number or SMILES of precursors, please check it again')
 				st.stop()
@@ -174,8 +173,7 @@ while True:
 		pol_smile = cirpy.resolve(poll, 'smiles')
 		if pol_smile is None:
 			try:
-				poll_mol = Chem.MolFromSmiles(poll)
-				cano_poll_smile = Chem.MolToSmiels(poll_mol)
+				cano_pollu_smiles = Chem.MolToSmiles(Chem.MolFromSmiles(poll))
 			except:
 				st.warning('Invalid chemical name, CAS number or SMILES, please check it again')
 				st.stop()
