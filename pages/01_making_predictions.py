@@ -113,25 +113,7 @@ with st.expander("Show how to get SMILES of chemicals"):
 
 
 	
-col1, col2, col3, col4= st.columns([2,2,1,1])
-if col1.button('Get the prediction'):
-	model_path = download()
-	message_container = st.empty()
-	message_container.text(model_path)
 
-	parser_tsl = ArgumentParser(description="translate.py")
-	opts.config_opts(parser_tsl)
-	opts.translate_opts(parser_tsl)
-	args_tsl = ['-model', model_path, \
-	            '-src', 'src.txt', \
-	            '-output', 'predictions.txt', \
-	            '-n_best', '5', \
-	            '-beam_size', '10', \
-	            '-max_length', '3000', \
-	            '-batch_size', '64']
-	opt_tsl = parser_tsl.parse_args(args_tsl)
-	ArgumentParser.validate_translate_opts(opt_tsl)
-	logg1er = init_logger(opt_tsl.log_file)
 
 def load_test_model(opt, model_path=None):
     if model_path is None:
@@ -174,6 +156,25 @@ def build_translator(opt, report_score, logger=None, out_file=None):
     )
     return translator
 def main():
+	col1, col2, col3, col4= st.columns([2,2,1,1])
+	if col1.button('Get the prediction'):
+		model_path = download()
+		message_container = st.empty()
+		message_container.text(model_path)
+	
+		parser_tsl = ArgumentParser(description="translate.py")
+		opts.config_opts(parser_tsl)
+		opts.translate_opts(parser_tsl)
+		args_tsl = ['-model', model_path, \
+		            '-src', 'src.txt', \
+		            '-output', 'predictions.txt', \
+		            '-n_best', '5', \
+		            '-beam_size', '10', \
+		            '-max_length', '3000', \
+		            '-batch_size', '64']
+		opt_tsl = parser_tsl.parse_args(args_tsl)
+		ArgumentParser.validate_translate_opts(opt_tsl)
+		#logg1er = init_logger(opt_tsl.log_file)
 	model_path = opt_tsl.models[0]
 	checkpoint = torch.load(model_path, map_location=lambda storage, loc: storage)
 	vocab = checkpoint['vocab']
