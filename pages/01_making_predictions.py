@@ -120,8 +120,8 @@ if col1.button('Get the prediction'):
 parser_tsl = ArgumentParser(description="translate.py")
 opts.config_opts(parser_tsl)
 opts.translate_opts(parser_tsl)
-args_tsl = ['-model', 'D:/Desktop/data/finnal-datasets-for-paper/Chem_Oxi_2k/20240424_best_model/modify3/transfer/transfer_step_47700.pt', \
-            '-src', 'D:/Desktop/data/finnal-datasets-for-paper/Chem_Oxi_2k/20240424_best_model/modify3/mini/fmy.txt', \
+args_tsl = ['-model', model_path , \
+            '-src', 'src.txt', \
             '-output', 'predictions.txt', \
             '-n_best', '5', \
             '-beam_size', '10', \
