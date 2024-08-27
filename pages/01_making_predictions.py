@@ -143,11 +143,8 @@ if True:
 	if prec !='':
 		prec_smile = cirpy.resolve(prec, 'smiles')
 		if prec_smile is None:
-			try:
-				cano_prec_smiles = Chem.MolToSmiles(Chem.MolFromSmiles(prec))
-			except:
-				st.warning('Invalid chemical name, CAS number or SMILES of precursors, please check it again')
-				st.stop()
+			st.warning('Invalid chemical name or CAS number of precursors, please check it again or imput SMILES')
+			st.stop()
 	with st.expander("Show how to get SMILES of chemicals"):
 		st.write('You can get SMILES of any molecules from PubChem https://pubchem.ncbi.nlm.nih.gov/ by typing Chemical name or ACS number')
 	
@@ -165,18 +162,10 @@ if True:
 	else:
 		pol_smile = cirpy.resolve(poll, 'smiles')
 		if pol_smile is None:
-			try:
-				cano_pollu_smiles = Chem.MolToSmiles(Chem.MolFromSmiles(poll))
-			except:
-				st.warning('Invalid chemical name, CAS number or SMILES, please check it again')
-				st.stop()
+			st.warning('Invalid chemical name or CAS number or SMILES, please check it again or input SMILES')
+			st.stop()
 
-
-
-
-	
 	col1, col2, col3, col4= st.columns([2,2,1,1])
-	
 	ros_smi = ros_smis[ros_name.index(ros_selct)]
 	methd_token = methd_tokens[acti_methd.index(methd_selct)]
 	pH = "".join(pH_value.split("."))
