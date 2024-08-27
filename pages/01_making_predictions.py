@@ -197,7 +197,7 @@ def main():
 	dp_smis = pd.read_csv(opt_tsl.output,header=None)
 	smis_li=["".join(dp_smi.split(" ")) for dp_smi in dp_smis[0]]
 	message_container = st.empty()
-	message_container.text("top1:smis[0]")
+	message_container.text(f"top1:{smis[0]}")
 	return
 
 if __name__ == '__main__':
