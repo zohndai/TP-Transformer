@@ -11,7 +11,6 @@ import torch
 import os
 import gdown
 import time
-import steamlit as st
 def load_model(fd,model_name):
     file_id = fd
     model_path = model_name
