@@ -63,7 +63,7 @@ with st.expander("Show how to get SMILES of chemicals"):
 	
 col1, col2, col3, col4= st.columns([2,2,1,1])
 if col1.button('Get the prediction'):
-		model_path = gdown_model.download()
+	model_path = gdown_model.download()
 def run():
 	col1, col2, col3, col4= st.columns([2,2,1,1])
 	if col1.button('Get the prediction'):
