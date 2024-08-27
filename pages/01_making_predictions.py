@@ -32,7 +32,6 @@ import onmt.model_builder
 import onmt.translate
 from onmt.utils.misc import split_corpus
 import re
-import os
 
 def smi_tokenize(smi):
     pattern = "(\[[^\]]+]|Br?|Cl?|N|O|S|P|F|I|b|c|n|o|s|p|\(|\)|\.|=|#|-|\+|\\\\|\/|:|~|@|\?|>|\*|\$|\%[0-9]{2}|[0-9]|UV|MW|VL|hv|E|US|heat|<|_)"
@@ -97,10 +96,11 @@ ros_selct=st.selectbox('What ROSs?', ( "HO∙", "SO₄∙⁻","O₃", "¹O₂", 
 #select = st.radio("Please specify the property or activity you want to predict", ('OH radical', 'SO4- radical', 'Koc', 'Solubility','pKd','pIC50','CCSM_H','CCSM_Na', 'Lipo','FreeSolv' ))
 st.subheader('Please input the precursors of the ROSs')
 prec = st.text_input("Please offer the SMILES of precursors, e.g.'OO.[Fe+2]' for the fenton reagent H2O2/Fe2+ ", "OO.[Fe+2]")
-prec_smile = cirpy.resolve(prec, 'smiles')
-if prec_smile is None:
-	st.warning('Invalid chemical name or CAS number, please recheck it again or you can directly type the SMILES')
-	st.stop()
+if prec !='':
+	prec_smile = cirpy.resolve(poll, 'smiles')
+	if prec_smile is None:
+		st.warning('Invalid chemical name or CAS number, please recheck it again or you can directly type the SMILES')
+		st.stop()
 
 st.subheader("Please select the method for extertal energy input for the ROSs generation", "UV")
 methd_selct=st.selectbox("what method?",("UV", "Heat", "Visible light", "Microwave", "Electricity", "Ultrasound", "Sunlight", "No"))
@@ -115,12 +115,10 @@ poll = st.text_input("Please offer Chemical name, CAS number, or SMILES of the p
 if poll =='':
 	st.warning('You should at least provide one chemical')
 	st.stop()
-smile = cirpy.resolve(poll, 'smiles')
-
-if smile is None:
+pol_smile = cirpy.resolve(poll, 'smiles')
+if pol_smile is None:
 	st.warning('Invalid chemical name or CAS number, please recheck it again or you can directly type the SMILES')
 	st.stop()
-
 with st.expander("Show how to get SMILES of chemicals"):
 	st.write('You can get SMILES of any molecules from PubChem https://pubchem.ncbi.nlm.nih.gov/ by typing Chemical name or ACS number')
 
@@ -167,7 +165,6 @@ def build_translator(opt, report_score, logger=None, out_file=None):
     )
     return translator
 if True:
-	os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 	col1, col2, col3, col4= st.columns([2,2,1,1])
 	
 	ros_smi = ros_smis[ros_name.index(ros_selct)]
