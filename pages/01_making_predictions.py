@@ -97,7 +97,7 @@ ros_selct=st.selectbox('What ROSs?', ( "HO∙", "SO₄∙⁻","O₃", "¹O₂", 
 st.subheader('Please input the precursors of the ROSs')
 prec = st.text_input("Please offer the SMILES of precursors, e.g.'OO.[Fe+2]' for the fenton reagent H2O2/Fe2+ ", "OO.[Fe+2]")
 if prec !='':
-	prec_smile = cirpy.resolve(poll, 'smiles')
+	prec_smile = cirpy.resolve(prec, 'smiles')
 	if prec_smile is None:
 		st.warning('Invalid chemical name or CAS number, please recheck it again or you can directly type the SMILES')
 		st.stop()
