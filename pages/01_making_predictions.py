@@ -34,7 +34,7 @@ def download():
 		new_file_path = f'models/{model_name}.pt'
 		if not os.path.exists(new_file_path):
 		    os.rename(current_file_path, new_file_path)
-	message_container.tex("Model is ready!")
+	message_container.text("Model is ready!")
 	return new_file_path
 
 
