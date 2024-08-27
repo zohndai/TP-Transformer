@@ -149,7 +149,7 @@ if True:
 		st.write('You can get SMILES of any molecules from PubChem https://pubchem.ncbi.nlm.nih.gov/ by typing Chemical name or ACS number')
 	
 	st.subheader("Please select the method for extertal energy input for the ROSs generation", "UV")
-	methd_selct=st.selectbox("what method?",("UV", "Heat", "Visible light", "Microwave", "Electricity", "Ultrasound", "Sunlight", "No"))
+	methd_selct=st.selectbox("What activation method?",("UV", "Heat", "Visible light", "Microwave", "Electricity", "Ultrasound", "Sunlight", "No"))
 	
 	st.subheader('Please input the reaction pH for pollutant degradation')
 	pH_value = st.text_input("Keep two decimal places","7.00")
