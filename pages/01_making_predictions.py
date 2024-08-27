@@ -7,7 +7,7 @@ from rdkit.Chem import AllChem
 import cirpy
 import torch
 import models
-from models.gdown_model import download
+from gdown_model import download
 #from rdkit.Chem import Draw
 #import matplotlib.pyplot as plt
 
