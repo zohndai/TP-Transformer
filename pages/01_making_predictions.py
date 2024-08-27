@@ -24,7 +24,7 @@ st.subheader('Please input the precursors of the ROSs')
 st.text_input("Please offer Chemical name, CAS number, or SMILES of precursors', e.g. 'OO' for H2O2", "OO")
 
 st.subheader("Please select the method for extertal energy input for the ROSs generation", "UV")
-st.selectbox("what method?",("UV", "heat", "Visible Light", "Micro Wave", "Electricity", "Ultrasound"))
+st.selectbox("what method?",("UV", "Heat", "Visible light", "Micro wave", "Electricity", "Ultrasound", "Sunlight"))
 
 st.subheader('Please input the reaction pH for pollutant degradation')
 st.text_input("keep two decimal places","7.00")
