@@ -6,6 +6,7 @@ from rdkit import Chem
 from rdkit.Chem import AllChem
 import cirpy
 import torch
+import models
 from models import gdown_model
 #from rdkit.Chem import Draw
 #import matplotlib.pyplot as plt
