@@ -167,7 +167,7 @@ else:
 			st.stop()
 
 
-while True:
+if True:
 	col1, col2, col3, col4= st.columns([2,2,1,1])
 	
 	ros_smi = ros_smis[ros_name.index(ros_selct)]
