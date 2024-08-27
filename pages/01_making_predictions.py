@@ -119,19 +119,19 @@ if col1.button('Get the prediction'):
 	message_container = st.empty()
 	message_container.text(model_path)
 
-parser_tsl = ArgumentParser(description="translate.py")
-opts.config_opts(parser_tsl)
-opts.translate_opts(parser_tsl)
-args_tsl = ['-model', model_path, \
-            '-src', 'src.txt', \
-            '-output', 'predictions.txt', \
-            '-n_best', '5', \
-            '-beam_size', '10', \
-            '-max_length', '3000', \
-            '-batch_size', '64']
-opt_tsl = parser_tsl.parse_args(args_tsl)
-ArgumentParser.validate_translate_opts(opt_tsl)
-logg1er = init_logger(opt_tsl.log_file)
+	parser_tsl = ArgumentParser(description="translate.py")
+	opts.config_opts(parser_tsl)
+	opts.translate_opts(parser_tsl)
+	args_tsl = ['-model', model_path, \
+	            '-src', 'src.txt', \
+	            '-output', 'predictions.txt', \
+	            '-n_best', '5', \
+	            '-beam_size', '10', \
+	            '-max_length', '3000', \
+	            '-batch_size', '64']
+	opt_tsl = parser_tsl.parse_args(args_tsl)
+	ArgumentParser.validate_translate_opts(opt_tsl)
+	logg1er = init_logger(opt_tsl.log_file)
 
 def load_test_model(opt, model_path=None):
     if model_path is None:
@@ -200,5 +200,4 @@ def main():
 	return
 
 if __name__ == '__main__':
-    main()
-
+	main()
