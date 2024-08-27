@@ -29,7 +29,7 @@ acti_methd=["UV", "Heat", "Visible light", "Microwave", "Electricity", "Ultrasou
 methd_token=["UV", "heat", "VL", "MW", "E", "US", "SL", ""]
 
 st.subheader('Please select the ROSs that drive the pollutant degradation')
-select=st.selectbox('What ROSs?', ( "HO∙", "SO₄∙⁻","O₃", "¹O₂",  "Fe(VI)", "O₂∙⁻", "MnO₄⁻", "ClO⁻","HClO", "Cl₂","Cl∙","CO₃∙⁻","Cl₂∙⁻","C₂H₃O₃∙", \
+ros_selct=st.selectbox('What ROSs?', ( "HO∙", "SO₄∙⁻","O₃", "¹O₂",  "Fe(VI)", "O₂∙⁻", "MnO₄⁻", "ClO⁻","HClO", "Cl₂","Cl∙","CO₃∙⁻","Cl₂∙⁻","C₂H₃O₃∙", \
              "Cu(III)","Fe(V)",  "NO₂∙", "Mn(V)", "HSO₄∙", "O₂", "BrO⁻","NO∙", "ClO∙","Fe(IV)","Br∙", "IO⁻","C₂H₃O₂∙",\
              "HSO₅⁻", "ClO₂∙", "Br₂","HOBr","HO₂⁻","I∙", "NO₃∙", "IO₃∙⁻", \
            "Fe(III)", "S₂O₈∙⁻","HCO₃∙", "SO₃∙⁻", "Unkown"))
@@ -39,7 +39,7 @@ st.subheader('Please input the precursors of the ROSs')
 st.text_input("Please offer the SMILES of precursors, e.g.'OO.[Fe+2]' for the fenton reagent H2O2/Fe2+ ", "OO.[Fe+2]")
 
 st.subheader("Please select the method for extertal energy input for the ROSs generation", "UV")
-st.selectbox("what method?",("UV", "Heat", "Visible light", "Microwave", "Electricity", "Ultrasound", "Sunlight"))
+methd_selct=st.selectbox("what method?",("UV", "Heat", "Visible light", "Microwave", "Electricity", "Ultrasound", "Sunlight"))
 
 st.subheader('Please input the reaction pH for pollutant degradation')
 st.text_input("keep two decimal places","7.00")
