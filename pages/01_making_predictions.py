@@ -6,7 +6,7 @@ from rdkit import Chem
 from rdkit.Chem import AllChem
 import cirpy
 import torch
-from translation_code import foo
+from translation.translate import main
 #from rdkit.Chem import Draw
 #import matplotlib.pyplot as plt
 
