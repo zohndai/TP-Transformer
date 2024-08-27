@@ -116,17 +116,17 @@ pH_value = st.text_input("Keep two decimal places","7.00")
 
 st.subheader('What pollutant?')
 poll = st.text_input("Please offer Chemical name, CAS number, or SMILES of the pollutant, e.g. 'c1ccccc1' for benzene", "c1ccccc1")
-
 if poll =='':
 	st.warning('You should at least provide one chemical')
 	st.stop()
-pol_smile = cirpy.resolve(poll, 'smiles')
-if pol_smile is None:
-	try:
-		Chem.MolToSmiels(Chem.MolFromSmiles(poll))
-	except:
-		st.warning('Invalid chemical name, CAS number or SMILES, please check it again')
-		st.stop()
+elif:
+	pol_smile = cirpy.resolve(poll, 'smiles')
+	if pol_smile is None:
+		try:
+			Chem.MolToSmiels(Chem.MolFromSmiles(poll))
+		except:
+			st.warning('Invalid chemical name, CAS number or SMILES, please check it again')
+			st.stop()
 
 
 
