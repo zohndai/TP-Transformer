@@ -30,16 +30,14 @@ st.selectbox("what method?",("UV", "Heat", "Visible light", "Micro wave", "Elect
 st.subheader('Please input the reaction pH for pollutant degradation')
 st.text_input("keep two decimal places","7.00")
 
-st.subheader('Please input the SMILES of pollutants')
-st.text_input("Please offer Chemical name, CAS number, or SMILES of the pollutant, e.g. 'c1ccccc1' for benzene", "c1ccccc1")
-
 
 st.subheader('What is contaminant?')
-s = st.text_input('Please offer Chemical name, CAS number, or SMILES of contaminat', 'CCCCC')
+st.text_input("Please offer Chemical name, CAS number, or SMILES of the pollutant, e.g. 'c1ccccc1' for benzene", "c1ccccc1")
 if s =='':
 	st.warning('You should at least provide one chemical')
 	st.stop()
 smile = cirpy.resolve(s, 'smiles')
+
 if smile is None:
 	st.warning('Invalid chemical name or CAS number, please recheck it again or you can directly type the SMILES')
 	st.stop()
