@@ -35,7 +35,7 @@ ros_selct=st.selectbox('What ROSs?', ( "HO∙", "SO₄∙⁻","O₃", "¹O₂", 
              "Cu(III)","Fe(V)",  "NO₂∙", "Mn(V)", "HSO₄∙", "O₂", "BrO⁻","NO∙", "ClO∙","Fe(IV)","Br∙", "IO⁻","C₂H₃O₂∙",\
              "HSO₅⁻", "ClO₂∙", "Br₂","HOBr","HO₂⁻","I∙", "NO₃∙", "IO₃∙⁻", \
            "Fe(III)", "S₂O₈∙⁻","HCO₃∙", "SO₃∙⁻", "Unkown"))
-st.write('You selected:', select)
+#st.write('You selected:', ros_selct)
 #select = st.radio("Please specify the property or activity you want to predict", ('OH radical', 'SO4- radical', 'Koc', 'Solubility','pKd','pIC50','CCSM_H','CCSM_Na', 'Lipo','FreeSolv' ))
 st.subheader('Please input the precursors of the ROSs')
 st.text_input("Please offer the SMILES of precursors, e.g.'OO.[Fe+2]' for the fenton reagent H2O2/Fe2+ ", "OO.[Fe+2]")
