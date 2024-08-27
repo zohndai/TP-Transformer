@@ -199,7 +199,7 @@ def main():
 		opt_tsl = parser_tsl.parse_args(args_tsl)
 		ArgumentParser.validate_translate_opts(opt_tsl)
 		#logg1er = init_logger(opt_tsl.log_file)
-	model_path = opt_tsl.models[0]
+	#model_path = opt_tsl.models[0]
 	checkpoint = torch.load(model_path, map_location=lambda storage, loc: storage)
 	vocab = checkpoint['vocab']
 	translator = build_translator(opt_tsl, report_score=True)
