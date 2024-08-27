@@ -119,7 +119,7 @@ poll = st.text_input("Please offer Chemical name, CAS number, or SMILES of the p
 if poll =='':
 	st.warning('You should at least provide one chemical')
 	st.stop()
-elif:
+else:
 	pol_smile = cirpy.resolve(poll, 'smiles')
 	if pol_smile is None:
 		try:
