@@ -166,7 +166,7 @@ def build_translator(opt, report_score, logger=None, out_file=None):
         report_score=report_score, logger=logger, log_probs_out_file=log_probs_out_file, target_score_out_file=target_score_out_file,
     )
     return translator
-if Ture:
+if True:
 	os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 	col1, col2, col3, col4= st.columns([2,2,1,1])
 	
