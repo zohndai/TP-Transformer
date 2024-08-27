@@ -19,7 +19,7 @@ def load_model(fd,model_name):
 #if col1.button('Get the prediction')
 def download():
 	name = '47700_step'
-	destination_dir = 'pt_models'
+	destination_dir = 'models'
 	os.makedirs(destination_dir, exist_ok=True)
 	message_container = st.empty()
 	message_container.text("Downloading the models... Please wait.")
