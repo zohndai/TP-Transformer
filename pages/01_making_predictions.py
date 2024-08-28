@@ -230,5 +230,8 @@ if True:
 		message_container.text(",".join([f"top{i}:{smis_li[i-1]}" for i in range(1,11)]))
 		Fig1_col,Fig2_col,Fig3_col,Fig4_col,Fig5_col, Fig6_col, Fig7_col,Fig8_col,Fig9_col,Fig10_col, = st.columns([1,1,1,1,1,1,1,1,1,1])
 		for i in range(1,11):
-			exec(f"top{i}_fig = Draw.MolToImage(Chem.MolFromSmiles(smis_li[i-1]))")
+			try:
+				exec(f"top{i}_fig = Draw.MolToImage(Chem.MolFromSmiles(smis_li[i-1]))")
+			except:
+				exec(f"top{i}_fig = Draw.MolToImage(Chem.MolFromSmiles(""))")
 			eval(f"Fig{i}_col").image(eval(f"top{i}_fig"), caption = f'top{i}')
