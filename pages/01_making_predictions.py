@@ -227,6 +227,8 @@ if True:
 		
 		dp_smis = pd.read_csv(opt_tsl.output,header=None)
 		smis_li=["".join(dp_smi.split(" ")) for dp_smi in dp_smis[0]]
+		if len(smi_li) != 10:
+			smi_li += [""] * (10 - len(smi_li))
 		message_container = st.empty()
 		message_container.text(",".join([f"top{i}:{smis_li[i-1]}" for i in range(1,11)]))
 		Fig1_col,Fig2_col,Fig3_col,Fig4_col,Fig5_col, Fig6_col, Fig7_col,Fig8_col,Fig9_col,Fig10_col, = st.columns([1,1,1,1,1,1,1,1,1,1])
@@ -237,4 +239,4 @@ if True:
 				eval(f"Fig{i}_col").image(eval(f"top{i}_fig"), caption = f'top{i}')
 			except:
 				eval(f"Fig{i}_col").image(Image.open("invalsmi.jpg"), caption = f'top{i}')
-			
+				
