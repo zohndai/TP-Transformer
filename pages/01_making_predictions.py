@@ -32,6 +32,7 @@ import onmt.model_builder
 import onmt.translate
 from onmt.utils.misc import split_corpus
 import re
+from PIL import Image
 
 def smi_tokenize(smi):
     pattern = "(\[[^\]]+]|Br?|Cl?|N|O|S|P|F|I|b|c|n|o|s|p|\(|\)|\.|=|#|-|\+|\\\\|\/|:|~|@|\?|>|\*|\$|\%[0-9]{2}|[0-9]|UV|MW|VL|hv|E|US|heat|<|_)"
