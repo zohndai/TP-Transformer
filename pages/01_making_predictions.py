@@ -227,6 +227,7 @@ if True:
 		dp_smis = pd.read_csv(opt_tsl.output,header=None)
 		smis_li=["".join(dp_smi.split(" ")) for dp_smi in dp_smis[0]]
 		message_container = st.empty()
-		message_container.text(f"top1:{smis_li[0]},top2:{smis_li[1]},top3:{smis_li[2]},top4:{smis_li[3]},top5:{smis_li[4]}")
-		Fig1_col, Fig2_col,Fig3_col，Fig4_col，Fig5_col= st.columns([1,1,1,1,1])
-		
+		message_container.text(",".join([f"top{i}:{smis_li[i-1]}" for i in range(1,6)]))
+		#Fig1_col,Fig2_col,Fig3_col,Fig4_col,Fig5_col= st.columns([1,1,1,1,1])
+		#for i in rang(1,6):
+		#	exec(f"top{i} = "
