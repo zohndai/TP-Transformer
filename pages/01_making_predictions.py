@@ -233,6 +233,7 @@ if True:
 			try:
 				cano_pro = Chem.MolToSmiles(Chem.MolFromSmiles(smis_li[i-1]))
 				exec(f"top{i}_fig = Draw.MolToImage(Chem.MolFromSmiles(smis_li[i-1]))")
+				eval(f"Fig{i}_col").image(eval(f"top{i}_fig"), caption = f'top{i}')
 			except:
-				exec(f"top{i}_fig = Draw.MolToImage(Chem.MolFromSmiles(""))")
-			eval(f"Fig{i}_col").image(eval(f"top{i}_fig"), caption = f'top{i}')
+				eval(f"Fig{i}_col").image(Image.open("invalsmi.jpg"), caption = f'top{i}')
+			
