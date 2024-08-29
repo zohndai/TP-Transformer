@@ -114,9 +114,10 @@ st.set_page_config(
     initial_sidebar_state="auto"
 )
 
+if "has_snowed" not in st.session_state:
 
-
-
+    st.snow()
+    st.session_state["has_snowed"] = True
 
 if True:
 	ros_name = ["HO∙", "SO₄∙⁻","O₃", "¹O₂",  "Fe(VI)", "O₂∙⁻", "MnO₄⁻", "ClO⁻","HClO", "Cl₂","Cl∙","CO₃∙⁻","Cl₂∙⁻","C₂H₃O₃∙", \
