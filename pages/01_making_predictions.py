@@ -186,7 +186,7 @@ if True:
 		file.write(input)
 	
 	if col1.button('Get the prediction'):
-		if 'has_snowed' not in st.ssesion_state:
+		if 'has_snowed' not in st.session_state:
 			st.snow()
 			st.session_sate["has_snowed"] = True
 		model_path = download()
