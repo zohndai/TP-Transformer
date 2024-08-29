@@ -87,7 +87,6 @@ def load_test_model(opt, model_path=None):
     model.eval()
     model.generator.eval()
     return fields, model, model_opt
-@st.cache_data
 def build_translator(opt, report_score, logger=None, out_file=None):
     log_probs_out_file = None
     target_score_out_file = None
