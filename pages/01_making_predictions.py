@@ -239,10 +239,10 @@ def run():
 				eval(f"Fig{i}_col").image(eval(f"top{i}_fig"), caption = f'top{i}')
 			except:
 				eval(f"Fig{i}_col").image(Image.open("invalsmi.jpg"), caption = f'top{i}')
+			st.cache_data.clear()
+			st.cache_resource.clear()
 	return
 
 if __name__ == "__main__":
 	run()
-		#st.cache_data.clear()
-		# Clear the cache for cached resources
-		#st.cache_resource.clear()
+
