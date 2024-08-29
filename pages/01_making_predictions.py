@@ -115,8 +115,7 @@ st.set_page_config(
     initial_sidebar_state="auto"
 )
 
-@st.cache_data
-def run():
+if True():
 	ros_name = ["HO∙", "SO₄∙⁻","O₃", "¹O₂",  "Fe(VI)", "O₂∙⁻", "MnO₄⁻", "ClO⁻","HClO", "Cl₂","Cl∙","CO₃∙⁻","Cl₂∙⁻","C₂H₃O₃∙", \
              "Cu(III)","Fe(V)",  "NO₂∙", "Mn(V)", "HSO₄∙", "O₂", "BrO⁻","NO∙", "ClO∙","Fe(IV)","Br∙", "IO⁻","C₂H₃O₂∙",\
              "HSO₅⁻", "ClO₂∙", "Br₂","HOBr","HO₂⁻","I∙", "NO₃∙", "IO₃∙⁻", \
@@ -240,9 +239,3 @@ def run():
 				eval(f"Fig{i}_col").image(eval(f"top{i}_fig"), caption = f'top{i}')
 			except:
 				eval(f"Fig{i}_col").image(Image.open("invalsmi.jpg"), caption = f'top{i}')
-	return
-
-
-if __name__ == "__main__":
-	run()
-				
