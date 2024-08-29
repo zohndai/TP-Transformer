@@ -40,13 +40,14 @@ def smi_tokenize(smi):
     tokens = [token for token in compiled_pt.findall(smi)]
     #assert smi == ''.join(tokens)
     return " ".join(tokens)
-
+@st.cache_resource
 def load_model(fd,model_name):
     file_id = fd
     model_path = model_name
     download_url = f'https://drive.google.com/uc?id={file_id}'
     gdown.download(download_url, model_path, quiet=True)
 #if col1.button('Get the prediction')
+@st.cache_data
 def download():
 	name = '47700_step'
 	destination_dir = 'models'
@@ -66,6 +67,7 @@ def download():
 		    os.rename(current_file_path, new_file_path)
 	message_container.text("Model is ready!")
 	return new_file_path
+@st.cache_data	
 def load_test_model(opt, model_path=None):
     if model_path is None:
         model_path = opt.models[0]
@@ -85,7 +87,7 @@ def load_test_model(opt, model_path=None):
     model.eval()
     model.generator.eval()
     return fields, model, model_opt
-
+@st.cache_data
 def build_translator(opt, report_score, logger=None, out_file=None):
     log_probs_out_file = None
     target_score_out_file = None
