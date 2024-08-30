@@ -150,7 +150,7 @@ def run():
 	methd_selct=st.selectbox("What activation method?",("UV", "Heat", "Visible light", "Microwave", "Electricity", "Ultrasound", "Sunlight", "No"))
 	
 	st.subheader('Please input the reaction pH for pollutant degradation')
-	pH_value = st.text_input("Keep two decimal places","7.00")
+	pH_value = st.text_input("Keep two decimal places","3.00")
 	
 	st.subheader('What pollutant?')
 	poll = st.text_input("Please offer the Chemical name, CAS number or SMILES of the pollutant, e.g. 'c1ccccc1' for benzene", "c1ccccc1")
