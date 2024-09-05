@@ -35,7 +35,7 @@ if "has_snowed" not in st.session_state:
     st.snow()
     st.session_state["has_snowed"] = True
 if 'visitor_count' not in st.session_state:
-	visi_num = pd.reac_csv("visi_num.txt")
+	visi_num = pd.read_csv("visi_num.txt")
 	st.session_state.visitor_count = visi_num
 if 'session_initialized' not in st.session_state:
 	st.session_state.session_initialized = True
