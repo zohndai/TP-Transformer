@@ -40,4 +40,4 @@ if 'visitor_count' not in st.session_state:
 if 'session_initialized' not in st.session_state:
 	st.session_state.visitor_count += 1
 	st.session_state.session_initialized = True
-st.wite(f'Visitor Number: {st.session_state.visitor_count}')
+st.write(f'Visitor Number: {st.session_state.visitor_count}')
