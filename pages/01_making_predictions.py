@@ -33,7 +33,11 @@ import onmt.translate
 from onmt.utils.misc import split_corpus
 import re
 from PIL import Image
-
+if 'visitor_count' not in st.session_state:
+	st.session_state.visitor_count = 0
+if 'session_initialized' not in st.session_state:
+	st.session_state.visitor_count += 1
+	st.session_state.session_initialized = True
 def smi_tokenize(smi):
     pattern = "(\[[^\]]+]|Br?|Cl?|N|O|S|P|F|I|b|c|n|o|s|p|\(|\)|\.|=|#|-|\+|\\\\|\/|:|~|@|\?|>|\*|\$|\%[0-9]{2}|[0-9]|UV|MW|VL|hv|E|US|heat|<|_)"
     compiled_pt = re.compile(pattern)
@@ -186,9 +190,9 @@ def run():
 		file.write(input)
 	
 	if col1.button('Get the prediction'):
-		if 'has_snowed' not in st.session_state:
-			st.snow()
-			st.session_state["has_snowed"] = True
+		if all(not(prec), not(ros_selct)):
+			st.warning("At least one of 'ROSs and precursors' should be given, please check your input again")
+			st.stop()
 		model_path = download()
 		message_container = st.empty()
 		message_container.text("model version:DP-Transformer-1.0.20240826")
