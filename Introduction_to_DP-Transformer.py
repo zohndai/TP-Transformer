@@ -6,6 +6,19 @@ import streamlit.components.v1 as components
 
 
 # Replace with your actual Google Analytics tracking ID
+
+
+
+
+
+
+st.set_page_config(
+    page_title="Welcome to DP-Transformer",    
+    page_icon="💧",        
+    layout="wide",                
+    initial_sidebar_state="auto"  
+)
+
 GA_TRACKING_ID = "G-6MJ8FDZ7GH"
 
 GA_TRACKING_CODE = f"""
@@ -21,17 +34,6 @@ gtag('config', '{GA_TRACKING_ID}');
 """
 
 components.html(GA_TRACKING_CODE)
-
-
-
-
-
-st.set_page_config(
-    page_title="Welcome to DP-Transformer",    
-    page_icon="💧",        
-    layout="wide",                
-    initial_sidebar_state="auto"  
-)
 
 TEXT1 = """
         <body style='text-align: justify; color: black;'>
