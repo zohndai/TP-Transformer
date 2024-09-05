@@ -2,12 +2,13 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from PIL import Image
-import streamlit.components.v1 as components
+import streamlit.components.v1 as components'
+
 st.set_page_config(
     page_title="Welcome to DP-Transformer",    
     page_icon="💧",        
     layout="wide",                
-    initial_sidebar_state="auto"  
+    initial_sidebar_state="auto" 
 )
 
 TEXT1 = """
@@ -32,11 +33,15 @@ st.markdown(f'{TEXT1}', unsafe_allow_html=True)
 st.image(Image.open('predic.jpg'), width=800, caption = 'Figure 1. The workflow that DP-Transformer makes predictions')
 #col2.image(Image.open('Fig2.jpg'), caption = 'Figure 2. The performance enhancment C-MF brings for each dataset')
 if "has_snowed" not in st.session_state:
-    st.balloons()
+    st.snow()
     st.session_state["has_snowed"] = True
 if 'visitor_count' not in st.session_state:
-	st.session_state.visitor_count = 0
+	visi_num = pd.reac_csv("visi_num.txt")
+	st.session_state.visitor_count = visi_num
 if 'session_initialized' not in st.session_state:
 	st.session_state.session_initialized = True
 st.session_state.visitor_count += 1
 st.write(f'Visitor Number: {st.session_state.visitor_count}')
+with open("visi_num.txt", "w') as file:
+	  file.write(st.session_state.visitor_count)
+	
