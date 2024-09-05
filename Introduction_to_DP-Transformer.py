@@ -38,6 +38,6 @@ if "has_snowed" not in st.session_state:
 if 'visitor_count' not in st.session_state:
 	st.session_state.visitor_count = 0
 if 'session_initialized' not in st.session_state:
-	st.session_state.visitor_count += 1
 	st.session_state.session_initialized = True
+st.session_state.visitor_count += 1
 st.write(f'Visitor Number: {st.session_state.visitor_count}')
