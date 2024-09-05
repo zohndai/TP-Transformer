@@ -3,6 +3,9 @@ import pandas as pd
 #import numpy as np
 from PIL import Image
 
+visitor = pd.read_csv("visi_num.txt", header=None)
+visi_num = visitor[0][0]
+
 st.set_page_config(
     page_title="Welcome to DP-Transformer",    
     page_icon="💧",        
@@ -35,12 +38,13 @@ if "has_snowed" not in st.session_state:
     st.snow()
     st.session_state["has_snowed"] = True
 if 'visitor_count' not in st.session_state:
-	visi_num = pd.read_csv("visi_num.txt", header=None)
-	st.session_state.visitor_count = int(visi_num[0][0])
+	st.session_state.visitor_count = int(visi_num)
 if 'session_initialized' not in st.session_state:
 	st.session_state.session_initialized = True
 st.session_state.visitor_count += 1
+visi_num += 1
 st.write(f'Visitor Number: {st.session_state.visitor_count}')
 with open("visi_num.txt", 'w') as file:
-	  file.write(st.session_state.visitor_count)
+	file.write(visi_num)
+	file.close()
 	
