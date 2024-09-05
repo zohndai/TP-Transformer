@@ -4,6 +4,17 @@ import numpy as np
 from PIL import Image
 import streamlit.components.v1 as components
 
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6MJ8FDZ7GH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6MJ8FDZ7GH');
+</script>
+
 st.set_page_config(
     page_title="Welcome to DP-Transformer",    
     page_icon="💧",        
