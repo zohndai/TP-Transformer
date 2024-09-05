@@ -42,8 +42,7 @@ try:
 	visitor = pd.read_csv("visi_num.txt", header=None)
 	visi_num = visitor[0][0]
 except:
-	if visitor.empty:
-		visi_num = 0
+	visi_num = 0
 
 
 if 'visitor_count' not in st.session_state:
