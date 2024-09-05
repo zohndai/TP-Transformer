@@ -45,7 +45,7 @@ if "has_snowed" not in st.session_state:
 #	visi_num = 0
 visitor = pd.read_csv("visi_num.txt")
 st.wite(visitor)
-visi_num = visitor.num
+visi_num = visitor['num'][0]
 
 if 'visitor_count' not in st.session_state:
 	st.session_state.visitor_count = int(visi_num)
