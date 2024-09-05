@@ -4,7 +4,7 @@ import numpy as np
 from PIL import Image
 import streamlit.components.v1 as components
 import os
-# visit = os.makedir("")
+ visit = os.makedir("visi_num.txt")
 st.set_page_config(
     page_title="Welcome to DP-Transformer",    
     page_icon="💧",        
@@ -36,7 +36,6 @@ st.image(Image.open('predic.jpg'), width=800, caption = 'Figure 1. The workflow 
 if "has_snowed" not in st.session_state:
     st.balloons()
     st.session_state["has_snowed"] = True
-
 if 'visitor_count' not in st.session_state:
 	st.session_state.visitor_count = 0
 if 'session_initialized' not in st.session_state:
