@@ -4,7 +4,7 @@ import numpy as np
 from PIL import Image
 import streamlit.components.v1 as components
 import os
- visit = os.makedir("")
+# visit = os.makedir("")
 st.set_page_config(
     page_title="Welcome to DP-Transformer",    
     page_icon="💧",        
