@@ -3,6 +3,22 @@ import pandas as pd
 #import numpy as np
 from PIL import Image
 
+visitor = pd.read_csv("visi_num.txt")
+#st.write(visitor)
+visi_num = visitor['num'][0]
+
+if 'visitor_count' not in st.session_state:
+	st.session_state.visitor_count = int(visi_num)
+if 'session_initialized' not in st.session_state:
+	st.session_state.session_initialized = True
+st.session_state.visitor_count += 1
+visitor['num'][0] += 1
+st.metric(label=f'👁️ {visi_num}', value='')
+#st.write(f'Visitor Number: {st.session_state.visitor_count}')
+visitor.to_csv("visi_num.txt", index=False)
+
+
+
 st.set_page_config(
     page_title="Welcome to DP-Transformer",    
     page_icon="💧",        
@@ -43,19 +59,7 @@ if "has_snowed" not in st.session_state:
 #	visi_num = visitor[0][0]
 #except:
 #	visi_num = 0
-visitor = pd.read_csv("visi_num.txt")
-#st.write(visitor)
-visi_num = visitor['num'][0]
 
-if 'visitor_count' not in st.session_state:
-	st.session_state.visitor_count = int(visi_num)
-if 'session_initialized' not in st.session_state:
-	st.session_state.session_initialized = True
-st.session_state.visitor_count += 1
-visitor['num'][0] += 1
-st.metric(label=f'👁️ {visi_num}', value='')
-#st.write(f'Visitor Number: {st.session_state.visitor_count}')
-visitor.to_csv("visi_num.txt", index=False)
 #with open("visi_num.txt", 'w') as f:
 #	f.write(str(visi_num))
 #	f.close()
