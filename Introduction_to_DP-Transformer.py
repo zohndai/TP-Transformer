@@ -34,7 +34,7 @@ st.markdown(f'{TEXT1}', unsafe_allow_html=True)
 st.image(Image.open('predic.jpg'), width=800, caption = 'Figure 1. The workflow that DP-Transformer makes predictions')
 #col2.image(Image.open('Fig2.jpg'), caption = 'Figure 2. The performance enhancment C-MF brings for each dataset')
 if "has_snowed" not in st.session_state:
-    st.ballons()
+    st.balloons()
     st.session_state["has_snowed"] = True
 
 if 'visitor_count' not in st.session_state:
