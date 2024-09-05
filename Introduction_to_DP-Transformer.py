@@ -3,8 +3,6 @@ import pandas as pd
 import numpy as np
 from PIL import Image
 import streamlit.components.v1 as components
-import os
- visit = os.makedir("visi_num.txt")
 st.set_page_config(
     page_title="Welcome to DP-Transformer",    
     page_icon="💧",        
