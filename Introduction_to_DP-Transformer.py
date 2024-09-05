@@ -38,22 +38,24 @@ if "has_snowed" not in st.session_state:
     st.snow()
     st.session_state["has_snowed"] = True
 
-try:
-	visitor = pd.read_csv("visi_num.txt", header=None)
-	visi_num = visitor[0][0]
-except:
-	visi_num = 0
-
+#try:
+#	visitor = pd.read_csv("visi_num.txt", header=None)
+#	visi_num = visitor[0][0]
+#except:
+#	visi_num = 0
+visitor = pd.read_csv("visi_num.txt", header=None)
+visi_num = visitor['num'][0]
 
 if 'visitor_count' not in st.session_state:
 	st.session_state.visitor_count = int(visi_num)
 if 'session_initialized' not in st.session_state:
 	st.session_state.session_initialized = True
 st.session_state.visitor_count += 1
-visi_num += 1
+visi.num += 1
 st.metric(label='👁️ Page Views', value=visi_num)
 st.write(f'Visitor Number: {st.session_state.visitor_count}')
-with open("visi_num.txt", 'w') as f:
-	f.write(str(visi_num))
-	f.close()
+visi.to_csv("visi_num.txt", index=False)
+#with open("visi_num.txt", 'w') as f:
+#	f.write(str(visi_num))
+#	f.close()
 	
