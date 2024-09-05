@@ -44,7 +44,7 @@ if "has_snowed" not in st.session_state:
 #except:
 #	visi_num = 0
 visitor = pd.read_csv("visi_num.txt")
-st.write(visitor)
+#st.write(visitor)
 visi_num = visitor['num'][0]
 
 if 'visitor_count' not in st.session_state:
@@ -54,7 +54,7 @@ if 'session_initialized' not in st.session_state:
 st.session_state.visitor_count += 1
 visitor['num'][0] += 1
 st.metric(label='👁️ Page Views', value=visi_num)
-st.write(f'Visitor Number: {st.session_state.visitor_count}')
+#st.write(f'Visitor Number: {st.session_state.visitor_count}')
 visitor.to_csv("visi_num.txt", index=False)
 #with open("visi_num.txt", 'w') as f:
 #	f.write(str(visi_num))
