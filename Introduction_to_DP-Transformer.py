@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np
 from PIL import Image
 import streamlit.components.v1 as components
+import os
+ visit = os.makedir("")
 st.set_page_config(
     page_title="Welcome to DP-Transformer",    
     page_icon="💧",        
@@ -32,7 +34,7 @@ st.markdown(f'{TEXT1}', unsafe_allow_html=True)
 st.image(Image.open('predic.jpg'), width=800, caption = 'Figure 1. The workflow that DP-Transformer makes predictions')
 #col2.image(Image.open('Fig2.jpg'), caption = 'Figure 2. The performance enhancment C-MF brings for each dataset')
 if "has_snowed" not in st.session_state:
-    st.snow()
+    st.ballons()
     st.session_state["has_snowed"] = True
 
 if 'visitor_count' not in st.session_state:
