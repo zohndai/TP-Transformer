@@ -5,19 +5,25 @@ from PIL import Image
 import streamlit.components.v1 as components
 
 
+# Replace with your actual Google Analytics tracking ID
+GA_TRACKING_ID = "G-6MJ8FDZ7GH"
 
 GA_TRACKING_CODE = f"""
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6MJ8FDZ7GH"></script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={GA_TRACKING_ID}"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+window.dataLayer = window.dataLayer || [];
+function gtag(){{dataLayer.push(arguments);}}
+gtag('js', new Date());
 
-  gtag('config', 'G-6MJ8FDZ7GH');
+gtag('config', '{GA_TRACKING_ID}');
 </script>
 """
+
 components.html(GA_TRACKING_CODE)
+
+
+
 
 
 st.set_page_config(
