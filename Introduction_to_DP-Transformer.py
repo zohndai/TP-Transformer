@@ -51,6 +51,7 @@ if 'session_initialized' not in st.session_state:
 	st.session_state.session_initialized = True
 st.session_state.visitor_count += 1
 visi_num += 1
+st.metric(label='👁️ Page Views', value=visi_num)
 st.write(f'Visitor Number: {st.session_state.visitor_count}')
 with open("visi_num.txt", 'w') as f:
 	f.write(str(visi_num))
