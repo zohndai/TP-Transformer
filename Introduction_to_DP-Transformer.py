@@ -5,6 +5,8 @@ from PIL import Image
 import streamlit.components.v1 as components
 
 
+
+GA_TRACKING_CODE = f"""
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6MJ8FDZ7GH"></script>
 <script>
@@ -14,7 +16,8 @@ import streamlit.components.v1 as components
 
   gtag('config', 'G-6MJ8FDZ7GH');
 </script>
-
+		  """
+components.html(GA_TRACKING_CODE)
 st.set_page_config(
     page_title="Welcome to DP-Transformer",    
     page_icon="💧",        
