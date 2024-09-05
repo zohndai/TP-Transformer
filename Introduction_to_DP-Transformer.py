@@ -10,6 +10,18 @@ st.set_page_config(
     initial_sidebar_state="auto"  
 )
 
+TEXT1 = """
+        <body style='text-align: justify; color: black;'>
+        <p> DP-Transformer platform is backend by advanced machine learning models to service users for predicting the degradation products of aqueous organic pollutants in chemical oxidation processes. 
+		DP-Transformer can now predict the degradation products and degradation pathways of organic pollutants. DP-Tramsformer uses SMILES to represent chemicals.   
+        </p>DP-Transformer is based on a similar model architecture as the Molecular Transformer but is distinguished by the utilized dataset. The well-trained DP-Transformer accepts pollutant SMILES, oxidative species,
+	and reaction conditions (e.g., pH) as inputs and outputs the SMILES of the degradation products. This model is capable of predicting not only the degradation intermediates but also the complete degradation pathways. 
+ The prediction of degradation pathways is accomplished through an iterative process, where a predicted degradation product made by DP-Transformer is used as input for subsequent prediction. This process continues until the 
+ model predicts CO2 or when the predicted chemicals remain unchanged (i.e., non-degradable), indicating the formation of the final degradation products (Figure 1). 
+	  <p> 
+	  </p>
+        </body>         
+        """
 GA_TRACKING_ID = "G-6MJ8FDZ7GH"
 
 GA_TRACKING_CODE = f"""
@@ -24,19 +36,6 @@ gtag('config', '{GA_TRACKING_ID}');
 </script>
 """
 
-
-TEXT1 = """
-        <body style='text-align: justify; color: black;'>
-        <p> DP-Transformer platform is backend by advanced machine learning models to service users for predicting the degradation products of aqueous organic pollutants in chemical oxidation processes. 
-		DP-Transformer can now predict the degradation products and degradation pathways of organic pollutants. DP-Tramsformer uses SMILES to represent chemicals.   
-        </p>DP-Transformer is based on a similar model architecture as the Molecular Transformer but is distinguished by the utilized dataset. The well-trained DP-Transformer accepts pollutant SMILES, oxidative species,
-	and reaction conditions (e.g., pH) as inputs and outputs the SMILES of the degradation products. This model is capable of predicting not only the degradation intermediates but also the complete degradation pathways. 
- The prediction of degradation pathways is accomplished through an iterative process, where a predicted degradation product made by DP-Transformer is used as input for subsequent prediction. This process continues until the 
- model predicts CO2 or when the predicted chemicals remain unchanged (i.e., non-degradable), indicating the formation of the final degradation products (Figure 1). 
-	  <p> 
-	  </p>
-        </body>         
-        """
 components.html(GA_TRACKING_CODE)
 if "show_animation" not in st.session_state:
     st.session_state.show_animation = True
