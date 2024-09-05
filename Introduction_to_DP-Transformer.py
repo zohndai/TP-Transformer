@@ -53,6 +53,6 @@ st.session_state.visitor_count += 1
 visi_num += 1
 st.write(f'Visitor Number: {st.session_state.visitor_count}')
 with open("visi_num.txt", 'w') as f:
-	f.write(visi_num)
+	f.write(str(visi_num))
 	f.close()
 	
