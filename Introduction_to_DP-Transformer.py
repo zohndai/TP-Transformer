@@ -16,8 +16,10 @@ GA_TRACKING_CODE = f"""
 
   gtag('config', 'G-6MJ8FDZ7GH');
 </script>
-		  """
+"""
 components.html(GA_TRACKING_CODE)
+
+
 st.set_page_config(
     page_title="Welcome to DP-Transformer",    
     page_icon="💧",        
