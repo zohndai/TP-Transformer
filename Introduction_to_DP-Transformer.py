@@ -55,7 +55,7 @@ st.session_state.visitor_count += 1
 visitor['num'][0] += 1
 st.metric(label='👁️ Page Views', value=visi_num)
 #st.write(f'Visitor Number: {st.session_state.visitor_count}')
-visitor.to_csv("https://github.com/zohndai/DP-Transformer/blob/main/visi_num.txt", index=False)
+visitor.to_csv("visi_num.txt", index=False)
 #with open("visi_num.txt", 'w') as f:
 #	f.write(str(visi_num))
 #	f.close()
