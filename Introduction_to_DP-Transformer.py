@@ -3,9 +3,6 @@ import pandas as pd
 #import numpy as np
 from PIL import Image
 
-visitor = pd.read_csv("visi_num.txt", header=None)
-visi_num = visitor[0][0]
-
 st.set_page_config(
     page_title="Welcome to DP-Transformer",    
     page_icon="💧",        
@@ -26,6 +23,7 @@ TEXT1 = """
         </body>         
         """
 
+
 if "show_animation" not in st.session_state:
     st.session_state.show_animation = True
 st.header('Welcome to DP-Transformer!')
@@ -34,9 +32,15 @@ st.markdown(f'{TEXT1}', unsafe_allow_html=True)
 #col1= st.columns([1])
 st.image(Image.open('predic.jpg'), width=800, caption = 'Figure 1. The workflow that DP-Transformer makes predictions')
 #col2.image(Image.open('Fig2.jpg'), caption = 'Figure 2. The performance enhancment C-MF brings for each dataset')
+
+
 if "has_snowed" not in st.session_state:
     st.snow()
     st.session_state["has_snowed"] = True
+
+visitor = pd.read_csv("visi_num.txt",header=None)
+visi_num = visitor[0][0]
+
 if 'visitor_count' not in st.session_state:
 	st.session_state.visitor_count = int(visi_num)
 if 'session_initialized' not in st.session_state:
@@ -44,7 +48,7 @@ if 'session_initialized' not in st.session_state:
 st.session_state.visitor_count += 1
 visi_num += 1
 st.write(f'Visitor Number: {st.session_state.visitor_count}')
-with open("visi_num.txt", 'w') as file:
-	file.write(visi_num)
-	file.close()
+with open("visi_num.txt", 'w') as f:
+	f.write(visi_num)
+	f.close()
 	
