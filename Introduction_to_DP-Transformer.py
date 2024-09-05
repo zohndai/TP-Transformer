@@ -3,6 +3,15 @@ import pandas as pd
 #import numpy as np
 from PIL import Image
 
+
+
+st.set_page_config(
+    page_title="Welcome to DP-Transformer",    
+    page_icon="💧",        
+    layout="wide",                
+    initial_sidebar_state="auto" 
+)
+
 visitor = pd.read_csv("visi_num.txt")
 #st.write(visitor)
 visi_num = visitor['num'][0]
@@ -17,14 +26,6 @@ st.metric(label=f'👁️ {visi_num}', value='')
 #st.write(f'Visitor Number: {st.session_state.visitor_count}')
 visitor.to_csv("visi_num.txt", index=False)
 
-
-
-st.set_page_config(
-    page_title="Welcome to DP-Transformer",    
-    page_icon="💧",        
-    layout="wide",                
-    initial_sidebar_state="auto" 
-)
 
 TEXT1 = """
         <body style='text-align: justify; color: black;'>
