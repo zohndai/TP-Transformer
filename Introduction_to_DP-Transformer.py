@@ -41,6 +41,6 @@ if 'session_initialized' not in st.session_state:
 	st.session_state.session_initialized = True
 st.session_state.visitor_count += 1
 st.write(f'Visitor Number: {st.session_state.visitor_count}')
-with open("visi_num.txt", "w') as file:
+with open("visi_num.txt", 'w') as file:
 	  file.write(st.session_state.visitor_count)
 	
