@@ -4,7 +4,7 @@ import numpy as np
 import rdkit
 from rdkit import Chem
 from rdkit.Chem import AllChem
-import cirpy
+#import cirpy
 import torch
 from rdkit.Chem import Draw
 #import matplotlib.pyplot as plt
@@ -139,10 +139,8 @@ def run():
 	st.subheader('Please input the precursors of the ROSs')
 	prec = st.text_input("Please offer the SMILES of precursors, e.g.'OO.[Fe+2]' for the fenton reagent H2O2/Fe2+ ", "OO.[Fe+2]")
 	if prec !='':
-		#prec_smile = cirpy.resolve(prec, 'smiles')
-		if prec_smile is None:
-			st.warning('Invalid chemical name or CAS number of precursors, please check it again or imput SMILES')
-			st.stop()
+		st.warning('Invalid chemical name or CAS number of precursors, please check it again or imput SMILES')
+		st.stop()
 	with st.expander("Show how to get SMILES of chemicals"):
 		st.write('You can get SMILES of any molecules from PubChem https://pubchem.ncbi.nlm.nih.gov/ by typing Chemical name or ACS number')
 	
@@ -157,11 +155,6 @@ def run():
 	if poll =='':
 		st.warning('You should at least provide one chemical')
 		st.stop()
-	else:
-		#pol_smile = cirpy.resolve(poll, 'smiles')
-		if pol_smile is None:
-			st.warning('Invalid chemical SMILES, please check it again')
-			st.stop()
 
 	col1, col2, col3, col4= st.columns([2,2,1,1])
 	ros_smi = ros_smis[ros_name.index(ros_selct)]
