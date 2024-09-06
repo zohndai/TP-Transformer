@@ -22,7 +22,7 @@ if 'session_initialized' not in st.session_state:
 	st.session_state.session_initialized = True
 st.session_state.visitor_count += 1
 visitor['num'][0] += 1
-st.metric(label=f'👁️page views: {visi_num}', value='')
+st.metric(label=f'👁page views: {visi_num}', value='')
 #st.write(f'Visitor Number: {st.session_state.visitor_count}')
 visitor.to_csv("visi_num.txt", index=False)
 
