@@ -217,7 +217,22 @@ def run():
 			    attn_debug=opt_tsl.attn_debug, # False
 			    align_debug=opt_tsl.align_debug # False
 			)
-		st.warning("Predicted Products:")
+
+		
+		#st.warning("Predicted Products:")
+		message = "This is your message tip!"
+		background_color = "#00FF00"  # Green color
+		
+		# Use st.markdown to display the message with custom background color
+		st.markdown(f"""
+		    <div style="background-color:{background_color}; padding:10px; border-radius:5px;">
+		        <p style="color:black;">{message}</p>
+		    </div>
+		    """, unsafe_allow_html=True)
+
+
+
+		
 		dp_smis = pd.read_csv(opt_tsl.output,header=None)
 		smis_li=["".join(dp_smi.split(" ")) for dp_smi in dp_smis[0]]
 		if len(smis_li) != 10:
