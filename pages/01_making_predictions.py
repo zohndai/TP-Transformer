@@ -217,13 +217,13 @@ def run():
 			    attn_debug=opt_tsl.attn_debug, # False
 			    align_debug=opt_tsl.align_debug # False
 			)
-		
+		st.warning("Predicted Products:")
 		dp_smis = pd.read_csv(opt_tsl.output,header=None)
 		smis_li=["".join(dp_smi.split(" ")) for dp_smi in dp_smis[0]]
 		if len(smis_li) != 10:
 			smis_li += [""] * (10 - len(smis_li))
 		message_container = st.empty()
-		st.warning("Predicted Products:")
+		
 		message_container.text(",".join([f"top{i}:{smis_li[i-1]}" for i in range(1,11)]))
 		Fig1_col,Fig2_col,Fig3_col,Fig4_col,Fig5_col, Fig6_col, Fig7_col,Fig8_col,Fig9_col,Fig10_col, = st.columns([1]*10)
 		for i in range(1,11):
