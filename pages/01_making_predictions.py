@@ -219,18 +219,11 @@ def run():
 			)
 
 		
-		#st.warning("Predicted Products:")
-		message = "This is your message tip!"
-		background_color = "#00FF00"  # Green color
+		st.success("Predicted Products:")
+		#message = "This is your message tip!"
+		#background_color = "#00FF00"  # Green color
 		
 		# Use st.markdown to display the message with custom background color
-		st.markdown(f"""
-		    <div style="background-color:{background_color}; padding:10px; border-radius:5px;">
-		        <p style="color:black;">{message}</p>
-		    </div>
-		    """, unsafe_allow_html=True)
-
-
 
 		
 		dp_smis = pd.read_csv(opt_tsl.output,header=None)
