@@ -223,6 +223,7 @@ def run():
 		if len(smis_li) != 10:
 			smis_li += [""] * (10 - len(smis_li))
 		message_container = st.empty()
+		st.warning("Predicted Products:")
 		message_container.text(",".join([f"top{i}:{smis_li[i-1]}" for i in range(1,11)]))
 		Fig1_col,Fig2_col,Fig3_col,Fig4_col,Fig5_col, Fig6_col, Fig7_col,Fig8_col,Fig9_col,Fig10_col, = st.columns([1]*10)
 		for i in range(1,11):
