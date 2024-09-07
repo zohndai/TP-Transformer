@@ -137,7 +137,7 @@ def run():
 	methd_tokens=["UV", "heat", "VL", "MW", "E", "US", "SL", ""]
 	
 	st.subheader('What pollutant?')
-	poll = st.text_input("Please offer SMILES of the pollutant, e.g. 'c1ccccc1' for benzene", "c1ccccc1")
+	poll = st.text_input("Please input SMILES of the pollutant, e.g. 'c1ccccc1' for benzene", "c1ccccc1")
 	with st.expander("Show how to get SMILES of chemicals"):
 		st.write('You can get SMILES of any molecules from PubChem https://pubchem.ncbi.nlm.nih.gov/ by typing Chemical name or ACS number')
 	if poll =='':
@@ -151,14 +151,14 @@ def run():
 	           "Fe(III)", "S₂O₈∙⁻","HCO₃∙", "SO₃∙⁻", "Unkown"))
 	#st.write('You selected:', ros_selct)
 	#select = st.radio("Please specify the property or activity you want to predict", ('OH radical', 'SO4- radical', 'Koc', 'Solubility','pKd','pIC50','CCSM_H','CCSM_Na', 'Lipo','FreeSolv' ))
-	st.subheader('Please input the precursors of the ROSs')
-	prec = st.text_input("Please offer the SMILES of precursors, e.g.'OO.[Fe+2]' for the fenton reagent H2O2/Fe2+ ", "OO.[Fe+2]")
+	st.subheader('Which precursors generate ROSs')
+	prec = st.text_input("Please input the SMILES of precursors, e.g.'OO.[Fe+2]' for the fenton reagent H2O2/Fe2+ ", "OO.[Fe+2]")
 	#if prec !='':
 		#st.warning('Invalid chemical name or CAS number of precursors, please check it again or imput SMILES')
 		#st.stop()
 	
-	st.subheader("Please select the method for extertal energy input for the ROSs generation", "UV")
-	methd_selct=st.selectbox("What activation method?",("UV", "Heat", "Visible light", "Microwave", "Electricity", "Ultrasound", "Sunlight", "No"))
+	st.subheader("What activation method", "UV")
+	methd_selct=st.selectbox("Please select the method for extertal energy input for ROSs generation",("UV", "Heat", "Visible light", "Microwave", "Electricity", "Ultrasound", "Sunlight", "No"))
 	
 	#st.subheader('Please input the reaction pH for pollutant degradation')
 	#pH_value = st.text_input("Keep two decimal places","3.00")
