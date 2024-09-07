@@ -166,7 +166,7 @@ def run():
 
 
 	pH_value = st.select_slider('Select a pH value:',options=[round(x * 0.01, 2) for x in range(100, 1101)], value=3.00)
-	st.write('Selected pH value:', value)
+	st.write('Selected pH value:', pH_value)
 
 	col1, col2, col3, col4= st.columns([2,2,1,1])
 	ros_smi = ros_smis[ros_name.index(ros_selct)]
