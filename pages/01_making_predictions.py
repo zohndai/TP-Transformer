@@ -118,12 +118,7 @@ st.set_page_config(
 
 
 
-value = st.select_slider(
-    'Select a value:',
-    options=[round(x * 0.01, 2) for x in range(100, 1101)],
-    value=1.00
-)
-st.write('Selected value:', value)
+
 
 
 
@@ -137,6 +132,10 @@ def run():
 	 'CC(=O)O[O]','[Cu+3]','O=[Fe]([O-])([O-])[O-]','[O]N=O','O=[Mn]([O-])([O-])[O-]','[O]S(=O)(=O)O','O=O','[O-]Br','[N]=O','[O]Cl','[O-][Fe]([O-])([O-])[O-]','[Br]',\
 	 '[O-]I','CC([O])=O','O=S(=O)([O-])OO','[O][Cl+][O-]','BrBr','OBr','[O-]O','[I]','[O][N+](=O)[O-]','[O-][I+2]([O-])[O-]','[Fe+3]','[O]S(=O)(=O)OOS(=O)(=O)[O-]',\
 	 '[O]C(=O)O','[O]S(=O)[O-]','']
+
+
+	value = st.select_slider('Select a value:',options=[round(x * 0.01, 2) for x in range(100, 1101)], value=1.00)
+	st.write('Selected value:', value)
 	
 	
 	acti_methd=["UV", "Heat", "Visible light", "Microwave", "Electricity", "Ultrasound", "Sunlight", "No"]
