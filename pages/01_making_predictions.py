@@ -171,7 +171,7 @@ def run():
 	col1, col2, col3, col4= st.columns([2,2,1,1])
 	ros_smi = ros_smis[ros_name.index(ros_selct)]
 	methd_token = methd_tokens[acti_methd.index(methd_selct)]
-	pH = "".join(pH_value.split("."))
+	pH = "".join(str(pH_value).split("."))
 	try:
 		cano_prec = Chem.MolToSmiles(Chem.MolFromSmiles(prec))
 	except:
