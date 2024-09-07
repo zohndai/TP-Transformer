@@ -115,6 +115,19 @@ st.set_page_config(
     initial_sidebar_state="auto"
 )
 
+
+
+
+value = st.select_slider(
+    'Select a value:',
+    options=[round(x * 0.01, 2) for x in range(100, 1101)],
+    value=1.00
+)
+st.write('Selected value:', value)
+
+
+
+
 def run():
 	ros_name = ["HO∙", "SO₄∙⁻","O₃", "¹O₂",  "Fe(VI)", "O₂∙⁻", "MnO₄⁻", "ClO⁻","HClO", "Cl₂","Cl∙","CO₃∙⁻","Cl₂∙⁻","C₂H₃O₃∙", \
              "Cu(III)","Fe(V)",  "NO₂∙", "Mn(V)", "HSO₄∙", "O₂", "BrO⁻","NO∙", "ClO∙","Fe(IV)","Br∙", "IO⁻","C₂H₃O₂∙",\
