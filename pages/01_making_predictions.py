@@ -132,14 +132,17 @@ def run():
 	 'CC(=O)O[O]','[Cu+3]','O=[Fe]([O-])([O-])[O-]','[O]N=O','O=[Mn]([O-])([O-])[O-]','[O]S(=O)(=O)O','O=O','[O-]Br','[N]=O','[O]Cl','[O-][Fe]([O-])([O-])[O-]','[Br]',\
 	 '[O-]I','CC([O])=O','O=S(=O)([O-])OO','[O][Cl+][O-]','BrBr','OBr','[O-]O','[I]','[O][N+](=O)[O-]','[O-][I+2]([O-])[O-]','[Fe+3]','[O]S(=O)(=O)OOS(=O)(=O)[O-]',\
 	 '[O]C(=O)O','[O]S(=O)[O-]','']
-
-
-	value = st.select_slider('Select a value:',options=[round(x * 0.01, 2) for x in range(100, 1101)], value=1.00)
-	st.write('Selected value:', value)
-	
 	
 	acti_methd=["UV", "Heat", "Visible light", "Microwave", "Electricity", "Ultrasound", "Sunlight", "No"]
 	methd_tokens=["UV", "heat", "VL", "MW", "E", "US", "SL", ""]
+	
+	st.subheader('What pollutant?')
+	poll = st.text_input("Please offer SMILES of the pollutant, e.g. 'c1ccccc1' for benzene", "c1ccccc1")
+	with st.expander("Show how to get SMILES of chemicals"):
+		st.write('You can get SMILES of any molecules from PubChem https://pubchem.ncbi.nlm.nih.gov/ by typing Chemical name or ACS number')
+	if poll =='':
+		st.warning('You should at least provide one chemical')
+		st.stop()
 	
 	st.subheader('Please select the ROSs that drive the pollutant degradation')
 	ros_selct=st.selectbox('What ROSs?', ( "HO∙", "SO₄∙⁻","O₃", "¹O₂",  "Fe(VI)", "O₂∙⁻", "MnO₄⁻", "ClO⁻","HClO", "Cl₂","Cl∙","CO₃∙⁻","Cl₂∙⁻","C₂H₃O₃∙", \
@@ -153,20 +156,17 @@ def run():
 	#if prec !='':
 		#st.warning('Invalid chemical name or CAS number of precursors, please check it again or imput SMILES')
 		#st.stop()
-	with st.expander("Show how to get SMILES of chemicals"):
-		st.write('You can get SMILES of any molecules from PubChem https://pubchem.ncbi.nlm.nih.gov/ by typing Chemical name or ACS number')
 	
 	st.subheader("Please select the method for extertal energy input for the ROSs generation", "UV")
 	methd_selct=st.selectbox("What activation method?",("UV", "Heat", "Visible light", "Microwave", "Electricity", "Ultrasound", "Sunlight", "No"))
 	
-	st.subheader('Please input the reaction pH for pollutant degradation')
-	pH_value = st.text_input("Keep two decimal places","3.00")
+	#st.subheader('Please input the reaction pH for pollutant degradation')
+	#pH_value = st.text_input("Keep two decimal places","3.00")
 	
-	st.subheader('What pollutant?')
-	poll = st.text_input("Please offer SMILES of the pollutant, e.g. 'c1ccccc1' for benzene", "c1ccccc1")
-	if poll =='':
-		st.warning('You should at least provide one chemical')
-		st.stop()
+
+
+	value = st.select_slider('Select a pH value:',options=[round(x * 0.01, 2) for x in range(100, 1101)], value=3.00)
+	st.write('Selected pH value:', value)
 
 	col1, col2, col3, col4= st.columns([2,2,1,1])
 	ros_smi = ros_smis[ros_name.index(ros_selct)]
