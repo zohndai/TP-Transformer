@@ -152,7 +152,7 @@ def run():
 	#st.write('You selected:', ros_selct)
 	#select = st.radio("Please specify the property or activity you want to predict", ('OH radical', 'SO4- radical', 'Koc', 'Solubility','pKd','pIC50','CCSM_H','CCSM_Na', 'Lipo','FreeSolv' ))
 	st.subheader('Which precursors generate ROSs')
-	prec = st.text_input("Please input the SMILES of precursors, e.g.'OO.[Fe+2]' for the fenton reagent H2O2/Fe2+ ", "OO.[Fe+2]")
+	prec = st.text_input("Please input the SMILES of precursors, e.g. 'OO.[Fe+2]' for the fenton reagent H2O2/Fe2+ ", "OO.[Fe+2]")
 	#if prec !='':
 		#st.warning('Invalid chemical name or CAS number of precursors, please check it again or imput SMILES')
 		#st.stop()
