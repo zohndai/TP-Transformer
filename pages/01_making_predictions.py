@@ -183,7 +183,7 @@ def run():
 			
 	with coll2:
 		pH_value = st.select_slider(
-	    'Select a value:',
+	    '',
 	    options=[round(x * 0.01, 2) for x in range(000, 1401)],
 	    value=st.session_state.value
 		)
