@@ -174,19 +174,19 @@ def run():
 	)
 	
 	# "+" and "-" buttons for fine-tuning
-	col1, col2, col3 = st.columns([1, 1, 5])
+	coll1, coll2, coll3 = st.columns([1, 1, 5])
 	
-	with col1:
+	with coll1:
 	    if st.button("+"):
 	        if st.session_state.value < 14.00:
 	            st.session_state.value = round(st.session_state.value + 0.01, 2)
 	
-	with col2:
+	with coll2:
 	    if st.button("-"):
 	        if st.session_state.value > 0.00:
 	            st.session_state.value = round(st.session_state.value - 0.01, 2)
 	
-	with col3:
+	with coll3:
 	    st.write("Fine-tune the value:")
 	
 	# Update value based on slider or buttons
