@@ -164,30 +164,37 @@ def run():
 	#pH_value = st.text_input("Keep two decimal places","3.00")
 
 	if 'value' not in st.session_state:
-		st.session_state.value = 1.00
+		st.session_state.value = 3.00
 
 # Display slider for general selection
-	pH_value = st.select_slider(
-	    'Select a value:',
-	    options=[round(x * 0.01, 2) for x in range(000, 1401)],
-	    value=st.session_state.value
-	)
+#	pH_value = st.select_slider(
+#	    'Select a value:',
+#	    options=[round(x * 0.01, 2) for x in range(000, 1401)],
+#	    value=st.session_state.value
+#)
 	
 	# "+" and "-" buttons for fine-tuning
-	coll1, coll2, coll3 = st.columns([1, 1, 5])
+	coll1, coll2, coll3 = st.columns([1, 8, 1])
 	
 	with coll1:
 	    if st.button("+"):
 	        if st.session_state.value < 14.00:
 	            st.session_state.value = round(st.session_state.value + 0.01, 2)
-	
+			
 	with coll2:
+		pH_value = st.select_slider(
+	    'Select a value:',
+	    options=[round(x * 0.01, 2) for x in range(000, 1401)],
+	    value=st.session_state.value
+		)
+	    #st.write("Fine-tune the value:")
+	
+	with coll3:
 	    if st.button("-"):
 	        if st.session_state.value > 0.00:
 	            st.session_state.value = round(st.session_state.value - 0.01, 2)
 	
-	with coll3:
-	    st.write("Fine-tune the value:")
+
 	
 	# Update value based on slider or buttons
 	st.session_state.value = pH_value
