@@ -150,7 +150,7 @@ def run():
 		#st.warning('Invalid chemical name or CAS number of precursors, please check it again or imput SMILES')
 		#st.stop()
 	
-	st.subheader("What activation method", "No energy input")
+	st.subheader("What energy input method", "No energy input")
 	methd_selct=st.selectbox("Please select the energy input method for the ROSs generation.",("UV", "Heat", "Visible light", "Microwave", "Electricity", "Ultrasound", "Sunlight", "No energy input"))
 	
 	#st.subheader('Please input the reaction pH for pollutant degradation')
