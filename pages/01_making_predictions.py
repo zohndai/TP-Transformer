@@ -141,7 +141,7 @@ def run():
 	ros_selct=st.selectbox('What ROSs? If not sure, choose "Unknown"', ( "HO∙", "SO₄∙⁻","O₃", "¹O₂",  "Fe(VI)", "O₂∙⁻", "MnO₄⁻", "ClO⁻","HClO", "Cl₂","Cl∙","CO₃∙⁻","Cl₂∙⁻","C₂H₃O₃∙", \
 	             "Cu(III)","Fe(V)",  "NO₂∙", "Mn(V)", "HSO₄∙", "O₂", "BrO⁻","NO∙", "ClO∙","Fe(IV)","Br∙", "IO⁻","C₂H₃O₂∙",\
 	             "HSO₅⁻", "ClO₂∙", "Br₂","HOBr","HO₂⁻","I∙", "NO₃∙", "IO₃∙⁻", \
-	           "Fe(III)", "S₂O₈∙⁻","HCO₃∙", "SO₃∙⁻", "Unkown"), "HO∙")
+	           "Fe(III)", "S₂O₈∙⁻","HCO₃∙", "SO₃∙⁻", "Unkown"))
 	#st.write('You selected:', ros_selct)
 	#select = st.radio("Please specify the property or activity you want to predict", ('OH radical', 'SO4- radical', 'Koc', 'Solubility','pKd','pIC50','CCSM_H','CCSM_Na', 'Lipo','FreeSolv' ))
 	st.subheader('Which precursors generate ROSs')
@@ -151,7 +151,7 @@ def run():
 		#st.stop()
 	
 	st.subheader("What energy input method")
-	methd_selct=st.selectbox("Please select the energy input method for the ROSs generation.",("UV", "Heat", "Visible light", "Microwave", "Electricity", "Ultrasound", "Sunlight", "No energy input"),"No energy input")
+	methd_selct=st.selectbox("Please select the energy input method for the ROSs generation.",("UV", "Heat", "Visible light", "Microwave", "Electricity", "Ultrasound", "Sunlight", "No energy input"))
 	
 	#st.subheader('Please input the reaction pH for pollutant degradation')
 	#pH_value = st.text_input("Keep two decimal places","3.00")
