@@ -151,7 +151,7 @@ def run():
 		#st.stop()
 	
 	st.subheader("What energy input method")
-	methd_selct=st.selectbox("Please select the energy input method for the ROSs generation.",("UV", "Heat", "Visible light", "Microwave", "Electricity", "Ultrasound", "Sunlight", "No energy input"))
+	methd_selct=st.selectbox("Please select the energy input method for the ROSs generation.",("UV", "Heat", "Visible light", "Microwave", "Electricity", "Ultrasound", "Sunlight", "No energy input")，index=7)
 	
 	#st.subheader('Please input the reaction pH for pollutant degradation')
 	#pH_value = st.text_input("Keep two decimal places","3.00")
