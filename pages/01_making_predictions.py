@@ -163,8 +163,7 @@ def run():
 	#st.subheader('Please input the reaction pH for pollutant degradation')
 	#pH_value = st.text_input("Keep two decimal places","3.00")
 
-	if 'value' not in st.session_state:
-		st.session_state.value = 3.00
+	
 
 # Display slider for general selection
 #	pH_value = st.select_slider(
@@ -174,37 +173,13 @@ def run():
 #)
 	
 	# "+" and "-" buttons for fine-tuning
-	coll1, coll2, coll3 = st.columns([1, 8, 1])
-	
-	with coll1:
-	    if st.button("-"):
-	        if st.session_state.value > 0.00:
-	            st.session_state.value = round(st.session_state.value - 0.01, 2)
-			
-	with coll2:
-		pH_value = st.select_slider(
-	    "",
-	    options=[round(x * 0.01, 2) for x in range(000, 1401)],
-	    value=st.session_state.value
-		)
-	    #st.write("Fine-tune the value:")
-	
-	with coll3:
-	    if st.button("+"):
-	        if st.session_state.value < 14.00:
-	            st.session_state.value = round(st.session_state.value + 0.01, 2)
 	
 
 	
-	# Update value based on slider or buttons
-	st.session_state.value = pH_value
-	st.write('Selected pH value:', st.session_state.value)
-
+	pH_value = "%.2f"%(st.select_slider('Select a pH value:',options=[round(x * 0.01, 2) for x in range(0000, 1401)], value=3.00))
 	
-	#pH_value = "%.2f"%(st.select_slider('Select a pH value:',options=[round(x * 0.01, 2) for x in range(0000, 1401)], value=3.00))
-	
-	#pH_value = "{:.2f}".format(st.select_slider('Select a pH value:',options=[round(x * 0.01, 2) for x in range(0000, 1401)], value=3.00))
-	#st.write('Selected pH value:', pH_value)
+	pH_value = "{:.2f}".format(st.select_slider('Select a pH value:',options=[round(x * 0.01, 2) for x in range(0000, 1401)], value=3.00))
+	st.write('Selected pH value:', pH_value)
 
 	col1, col2, col3, col4= st.columns([2,2,1,1])
 	ros_smi = ros_smis[ros_name.index(ros_selct)]
