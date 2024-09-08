@@ -177,22 +177,22 @@ def run():
 	coll1, coll2, coll3 = st.columns([1, 8, 1])
 	
 	with coll1:
-	    if st.button("+"):
+	    if st.button("-"):
 	        if st.session_state.value < 14.00:
-	            st.session_state.value = round(st.session_state.value + 0.01, 2)
+	            st.session_state.value = round(st.session_state.value - 0.01, 2)
 			
 	with coll2:
 		pH_value = st.select_slider(
-	    '',
+	    None,
 	    options=[round(x * 0.01, 2) for x in range(000, 1401)],
 	    value=st.session_state.value
 		)
 	    #st.write("Fine-tune the value:")
 	
 	with coll3:
-	    if st.button("-"):
+	    if st.button("+"):
 	        if st.session_state.value > 0.00:
-	            st.session_state.value = round(st.session_state.value - 0.01, 2)
+	            st.session_state.value = round(st.session_state.value + 0.01, 2)
 	
 
 	
