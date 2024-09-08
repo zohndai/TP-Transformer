@@ -126,7 +126,7 @@ def run():
 	 '[O-]I','CC([O])=O','O=S(=O)([O-])OO','[O][Cl+][O-]','BrBr','OBr','[O-]O','[I]','[O][N+](=O)[O-]','[O-][I+2]([O-])[O-]','[Fe+3]','[O]S(=O)(=O)OOS(=O)(=O)[O-]',\
 	 '[O]C(=O)O','[O]S(=O)[O-]','']
 	
-	acti_methd=["UV", "Heat", "Visible light", "Microwave", "Electricity", "Ultrasound", "Sunlight", "No energy input"]
+	acti_methd=["UV light", "Heat", "Visible light", "Microwave", "Electricity", "Ultrasound", "Sunlight", "No energy input"]
 	methd_tokens=["UV", "heat", "VL", "MW", "E", "US", "SL", ""]
 	
 	st.subheader('What pollutant?')
@@ -151,7 +151,7 @@ def run():
 		#st.stop()
 	
 	st.subheader("What energy input method")
-	methd_selct=st.selectbox("Please select the energy input method for the ROSs generation.",("UV", "Heat", "Visible light", "Microwave", "Electricity", "Ultrasound", "Sunlight", "No energy input"),7)
+	methd_selct=st.selectbox("Please select the energy input method for the ROSs generation.",("UV light", "Heat", "Visible light", "Microwave", "Electricity", "Ultrasound", "Sunlight", "No energy input"),7)
 	
 	#st.subheader('Please input the reaction pH for pollutant degradation')
 	#pH_value = st.text_input("Keep two decimal places","3.00")
