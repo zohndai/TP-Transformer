@@ -178,7 +178,7 @@ def run():
 	
 	with coll1:
 	    if st.button("-"):
-	        if st.session_state.value < 14.00:
+	        if st.session_state.value > 0.00:
 	            st.session_state.value = round(st.session_state.value - 0.01, 2)
 			
 	with coll2:
@@ -191,7 +191,7 @@ def run():
 	
 	with coll3:
 	    if st.button("+"):
-	        if st.session_state.value > 0.00:
+	        if st.session_state.value < 14.00:
 	            st.session_state.value = round(st.session_state.value + 0.01, 2)
 	
 
