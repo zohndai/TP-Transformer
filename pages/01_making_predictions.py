@@ -130,7 +130,7 @@ def run():
 	methd_tokens=["UV", "heat", "VL", "MW", "E", "US", "SL", ""]
 	
 	st.subheader('What pollutant?')
-	poll = st.text_input("Please enter SMILES notation for the pollutant, e.g. 'c1ccccc1' for benzene", "c1ccccc1")
+	poll = st.text_input("Please enter the SMILES notation for the pollutant, e.g. 'c1ccccc1' for benzene", "c1ccccc1")
 	with st.expander("Show how to get SMILES of chemicals"):
 		st.write('You can get SMILES of any molecules from PubChem https://pubchem.ncbi.nlm.nih.gov/ by typing Chemical name or ACS number')
 	if poll =='':
