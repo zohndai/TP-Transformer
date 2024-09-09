@@ -35,7 +35,7 @@ TEXT1 = """
 	and outputs the SMILES of the degradation products. This model can predict not only degradation intermediates but also complete degradation pathways. The 
  prediction of degradation pathways is achieved through an iterative process, where the degradation product predicted by DP-Transformer is used as input for subsequent 
  predictions. This process continues until the model predicts CO2 or when the predicted chemicals remain unchanged (i.e., non-degradable), indicating the formation of 
- the final degradation products (Figure 1)."
+ the final degradation products (Figure 1).
 	  <p> 
 	  </p>
         </body>         
