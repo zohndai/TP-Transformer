@@ -29,12 +29,13 @@ visitor.to_csv("visi_num.txt", index=False)
 
 TEXT1 = """
         <body style='text-align: justify; color: black;'>
-        <p> DP-Transformer platform is backend by advanced machine learning models to service users for predicting the degradation products of aqueous organic pollutants in chemical oxidation processes. 
-		DP-Transformer can now predict the degradation products and degradation pathways of organic pollutants. DP-Tramsformer uses SMILES to represent chemicals.   
-        </p>DP-Transformer is based on a Transformer architecture. DP-Transformer accepts pollutant SMILES, oxidative species,
-	and reaction conditions (e.g., pH) as inputs and outputs the SMILES of the degradation products. This model is capable of predicting not only the degradation intermediates but also the complete degradation pathways. 
- The prediction of degradation pathways is accomplished through an iterative process, where a predicted degradation product made by DP-Transformer is used as input for subsequent prediction. This process continues until the 
- model predicts CO2 or when the predicted chemicals remain unchanged (i.e., non-degradable), indicating the formation of the final degradation products (Figure 1). 
+        <p> The DP-Transformer platform is powered by advanced machine learning models to assist users in predicting the degradation products of aqueous organic pollutants during chemical oxidation processes. DP-Transformer
+	is now capable of predicting both the degradation products and pathways of organic pollutants. It utilizes SMILES notation to represent chemical structures.   
+        </p>The DP-Transformer is built on a Transformer architecture. It accepts pollutant SMILES, oxidative species, and reaction conditions (e.g., pH) as inputs, 
+	and outputs the SMILES of the degradation products. This model can predict not only degradation intermediates but also complete degradation pathways. The 
+ prediction of degradation pathways is achieved through an iterative process, where the degradation product predicted by DP-Transformer is used as input for subsequent 
+ predictions. This process continues until the model predicts CO2 or when the predicted chemicals remain unchanged (i.e., non-degradable), indicating the formation of 
+ the final degradation products (Figure 1)."
 	  <p> 
 	  </p>
         </body>         
