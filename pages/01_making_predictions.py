@@ -54,7 +54,7 @@ def download():
 	os.makedirs(destination_dir, exist_ok=True)
 	message_container = st.empty()
 	message_container.text("Downloading the models... Please wait.")
-	fd_dict = {'1SAGp2nCpwP5aVzgqYfxoNvjb1Q41v2if':f'{name}_2024_0826',}
+	fd_dict = {'1IkvRvlpiLcETHrJahtLFuxiQtx0SBkdU':f'{name}_2024_0826',}
 	for fd in fd_dict.keys():
 		fd_file = fd
 		model_name = fd_dict[fd]
