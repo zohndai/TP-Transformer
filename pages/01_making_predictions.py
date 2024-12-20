@@ -127,7 +127,7 @@ def run():
 	 '[O]C(=O)O','[O]S(=O)[O-]','']
 	
 	acti_methd=["UV light", "Heat", "Visible light", "Microwave", "Electricity", "Ultrasound", "Sunlight", "No energy input"]
-	methd_tokens=["UV", "heat", "VL", "MW", "E", "US", "hv", ""]
+	methd_tokens=["ul", "heat", "vl", "MW", "E", "US", "sul", ""]
 	
 	st.subheader('What pollutant?')
 	poll = st.text_input("Please enter the SMILES notation for the pollutant, e.g. 'c1ccccc1' for benzene", "c1ccccc1")
