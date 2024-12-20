@@ -198,7 +198,7 @@ def run():
 	
 	if col1.button('Get the prediction'):
 		if all([not(prec), not(ros_smi), not(methd_selct)]):
-			st.warning("At least one of 'ROSs', 'precursors' and "energy input" should be given, please check your input again")
+			st.warning("At least one of 'ROSs', 'precursors' and 'energy input' should be given, please check your input again")
 			st.stop()
 		model_path = download()
 		message_container = st.empty()
