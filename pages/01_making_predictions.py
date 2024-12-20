@@ -150,7 +150,7 @@ def run():
 		#st.warning('Invalid chemical name or CAS number of precursors, please check it again or imput SMILES')
 		#st.stop()
 	
-	st.subheader("What energy input method")
+	st.subheader("What energy input")
 	methd_selct=st.selectbox("Please select the energy input method for the ROSs generation",("UV light", "Heat", "Visible light", "Microwave", "Electricity", "Ultrasound", "Sunlight", "No energy input"),7)
 	
 	#st.subheader('Please input the reaction pH for pollutant degradation')
@@ -197,8 +197,8 @@ def run():
 		file.write(input)
 	
 	if col1.button('Get the prediction'):
-		if all([not(prec), not(ros_smi)]):
-			st.warning("At least one of 'ROSs' and 'precursors' should be given, please check your input again")
+		if all([not(prec), not(ros_smi), not(methd_selct)]):
+			st.warning("At least one of 'ROSs', 'precursors' and "energy input" should be given, please check your input again")
 			st.stop()
 		model_path = download()
 		message_container = st.empty()
