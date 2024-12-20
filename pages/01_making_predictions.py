@@ -35,7 +35,7 @@ import re
 from PIL import Image
 
 def smi_tokenize(smi):
-    pattern = "(\[[^\]]+]|Br?|Cl?|N|O|S|P|F|I|b|c|n|o|s|p|\(|\)|\.|=|#|-|\+|\\\\|\/|:|~|@|\?|>|\*|\$|\%[0-9]{2}|[0-9]|UV|MW|VL|hv|E|US|heat|<|_)"
+    pattern = "(\[[^\]]+]|Br?|Cl?|su|OM|D|N|O|S|P|F|I|b|c|n|o|s|p|\(|\)|\.|=|#|-|\+|\\\\|\/|:|~|@|\?|>|\*|\$|\%[0-9]{2}|[0-9]|MW|u|v|r|l|E|US|heat|<|_)"
     compiled_pt = re.compile(pattern)
     tokens = [token for token in compiled_pt.findall(smi)]
     #assert smi == ''.join(tokens)
@@ -49,12 +49,12 @@ def load_model(fd,model_name):
 #if col1.button('Get the prediction')
 @st.cache_data
 def download():
-	name = '47700_step'
+	name = 'fine_tune_step_42480'
 	destination_dir = 'models'
 	os.makedirs(destination_dir, exist_ok=True)
 	message_container = st.empty()
 	message_container.text("Downloading the models... Please wait.")
-	fd_dict = {'1IkvRvlpiLcETHrJahtLFuxiQtx0SBkdU':f'{name}_2024_0826',}
+	fd_dict = {'1SAGp2nCpwP5aVzgqYfxoNvjb1Q41v2if':f'{name}_2024_0826',}
 	for fd in fd_dict.keys():
 		fd_file = fd
 		model_name = fd_dict[fd]
@@ -202,7 +202,7 @@ def run():
 			st.stop()
 		model_path = download()
 		message_container = st.empty()
-		message_container.text("model version:DP-Transformer-1.0.20240826")
+		message_container.text("model version:TP-Transformer-1.0.20240826")
 	
 		parser_tsl = ArgumentParser(description="translate.py")
 		opts.config_opts(parser_tsl)
