@@ -246,7 +246,7 @@ def run():
 
 		
 		dp_smis = pd.read_csv(opt_tsl.output,header=None)
-		smis_li=["".join(dp_smi.split(" ")) for dp_smi in dp_smis[0]]
+		smis_li=[list(set(("".join(dp_smi.split(" "))).split("."))) for dp_smi in dp_smis[0]]
 		if len(smis_li) != 10:
 			smis_li += [""] * (10 - len(smis_li))
 		message_container = st.empty()
