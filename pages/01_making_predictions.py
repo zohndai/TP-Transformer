@@ -56,7 +56,7 @@ def download():
 	message_container.text("Downloading the models... Please wait.")
 	#https://drive.google.com/file/d/1MTK_uL2hyS2QJrmq4HjaVCdJNLkTf55s/view?usp=drive_link
 	#1sYMbRmpYo23b5wtiTAnE8VaJGm9dMnvt
-	fd_dict = {'1MTK_uL2hyS2QJrmq4HjaVCdJNLkTf55s':f'{name}_2024_0826'}
+	fd_dict = {'1sYMbRmpYo23b5wtiTAnE8VaJGm9dMnvt':f'{name}_2024_0826'}
 	for fd in fd_dict.keys():
 		fd_file = fd
 		model_name = fd_dict[fd]
