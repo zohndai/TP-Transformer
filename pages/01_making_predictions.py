@@ -211,8 +211,8 @@ def run():
 		args_tsl = ['-model', model_path, \
 			    '-src', 'src.txt', \
 			    '-output', 'predictions.txt', \
-			    '-n_best', '10', \
-			    '-beam_size', '10', \
+			    '-n_best', '5', \
+			    '-beam_size', '5', \
 			    '-max_length', '3000', \
 			    '-batch_size', '64']
 		opt_tsl = parser_tsl.parse_args(args_tsl)
