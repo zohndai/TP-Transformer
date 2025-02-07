@@ -44,7 +44,7 @@ TEXT1 = """
 
 if "show_animation" not in st.session_state:
     st.session_state.show_animation = True
-st.header('Welcome to DP-Transformer!')
+st.header('Welcome to TP-Transformer!')
 st.markdown(f'{TEXT1}', unsafe_allow_html=True)
 #st.image(Image.open('Fig1.jpg'), caption = 'Figure 1. The comparison between binary MF (B-MF) and count-based MF (C-MF) when representing 1-Decanol, 1-Nonanol and 1-Ocatal')
 #col1= st.columns([1])
