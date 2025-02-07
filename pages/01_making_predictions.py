@@ -153,10 +153,10 @@ def run():
 		#st.stop()
 	
 	st.subheader("What energy input")
-	methd_selct=st.selectbox("Please select the energy input method for the ROSs generation",("UV light", "Heat", "Visible light", "Microwave", "Electricity", "Ultrasound", "Sunlight", "No energy input"),7)
+	methd_selct=st.selectbox("Please select the input energy for the ROSs generation",("UV light", "Heat", "Visible light", "Microwave", "Electricity", "Ultrasound", "Sunlight", "No energy input"),7)
 	
-	st.subheader('Please input the reaction pH for pollutant degradation')
-	pH_value = st.text_input("Keep two decimal places","3.00")
+	# st.subheader('Please input the reaction pH for pollutant degradation')
+	# pH_value = st.text_input("Keep two decimal places","3.00")
 
 	
 
@@ -173,7 +173,7 @@ def run():
 	
 	#pH_value = "%.2f"%(st.select_slider('Select a pH value:',options=[round(x * 0.01, 2) for x in range(0000, 1401)], value=3.00))
 	
-	#pH_value = "{:.2f}".format(st.select_slider('Select a pH value:',options=[round(x * 0.01, 2) for x in range(0000, 1401)], value=3.00))
+	pH_value = "{:.2f}".format(st.select_slider('Select a pH value:',options=[round(x * 0.01, 2) for x in range(0000, 1401)], value=3.00))
 	st.write('Selected pH value:', pH_value)
 
 	col1, col2, col3, col4= st.columns([2,2,1,1])
@@ -199,8 +199,8 @@ def run():
 		file.write(input)
 	
 	if col1.button('Get the prediction'):
-		if all([not(prec), not(ros_smi), not(methd_selct)]):
-			st.warning("At least one of 'ROSs', 'precursors' and 'energy input' should be given, please check your input again")
+		if any([not(prec), not(ros_smi)]):
+			st.warning("At least one of 'ROSs' and 'precursors' should be given, please check your input again")
 			st.stop()
 		model_path = download()
 		message_container = st.empty()
@@ -227,7 +227,7 @@ def run():
 		tgt_shards_tsl = split_corpus(opt_tsl.tgt, opt_tsl.shard_size)
 		shard_pairs_tsl = zip(src_shards_tsl, tgt_shards_tsl)
 		for i, (src_shard_tsl, tgt_shard_tsl) in enumerate(shard_pairs_tsl): # 0, ([src], None)
-			#logger.info("Translating shard %d." % i) # 只有0
+			#logger.info("Translating shard %d." % i) # 
 			translator.translate(
 			    src=src_shard_tsl,
 			    tgt=tgt_shard_tsl,
