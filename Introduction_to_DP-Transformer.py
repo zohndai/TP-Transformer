@@ -6,7 +6,7 @@ from PIL import Image
 
 
 st.set_page_config(
-    page_title="Welcome to DP-Transformer",    
+    page_title="Welcome to TP-Transformer",    
     page_icon="💧",        
     layout="wide",                
     initial_sidebar_state="auto" 
@@ -29,12 +29,12 @@ visitor.to_csv("visi_num.txt", index=False)
 
 TEXT1 = """
         <body style='text-align: justify; color: black;'>
-        <p> The DP-Transformer platform is powered by advanced machine learning models to assist users in predicting the degradation products of aqueous organic pollutants during chemical oxidation processes. DP-Transformer
+        <p> The TP-Transformer platform is powered by advanced machine learning models to assist users in predicting the transformation products of aqueous organic pollutants in chemical oxidation processes. TP-Transformer
 	is now capable of predicting both the degradation products and pathways of organic pollutants. It utilizes SMILES notation to represent chemical structures.   
-        </p>The DP-Transformer is built on a Transformer architecture. It accepts pollutant SMILES, oxidative species, and reaction conditions (e.g., pH) as inputs, 
+        </p>The TP-Transformer is built on a Transformer architecture. It accepts pollutant SMILES, oxidative species, and reaction conditions (e.g., pH) as inputs, 
 	and outputs the SMILES of the degradation products. This model can predict not only degradation intermediates but also complete degradation pathways. The 
- prediction of degradation pathways is achieved through an iterative process, where the degradation product predicted by DP-Transformer is used as input for subsequent 
- predictions. This process continues until the model predicts CO2 or when the predicted chemicals remain unchanged (i.e., non-degradable), indicating the formation of 
+ prediction of degradation pathways is achieved through an iterative process, where the degradation product predicted by TP-Transformer is used as input for subsequent 
+ predictions. This process continues until the model predicts CO<sub>2</sub> or when the predicted chemicals remain unchanged (i.e., non-degradable), indicating the formation of 
  the final degradation products (Figure 1).
 	  <p> 
 	  </p>
@@ -48,7 +48,7 @@ st.header('Welcome to DP-Transformer!')
 st.markdown(f'{TEXT1}', unsafe_allow_html=True)
 #st.image(Image.open('Fig1.jpg'), caption = 'Figure 1. The comparison between binary MF (B-MF) and count-based MF (C-MF) when representing 1-Decanol, 1-Nonanol and 1-Ocatal')
 #col1= st.columns([1])
-st.image(Image.open('predic.jpg'), width=800, caption = 'Figure 1. The workflow that DP-Transformer makes predictions')
+st.image(Image.open('predic.jpg'), width=800, caption = 'Figure 1. The workflow that TP-Transformer makes predictions')
 #col2.image(Image.open('Fig2.jpg'), caption = 'Figure 2. The performance enhancment C-MF brings for each dataset')
 
 
