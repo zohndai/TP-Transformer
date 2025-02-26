@@ -57,7 +57,7 @@ def download():
 	#https://drive.google.com/file/d/1MTK_uL2hyS2QJrmq4HjaVCdJNLkTf55s/view?usp=drive_link
 	#1fa4ErVvXjZzbLCZzJEsQ6I9nelAR7iCu
 	#1NmXn3OhaAexvfhdTwZQxq8gbKaF_GV6u
-	fd_dict = {'1fa4ErVvXjZzbLCZzJEsQ6I9nelAR7iCu':f'{name}_2024_0826'}
+	fd_dict = {'1NmXn3OhaAexvfhdTwZQxq8gbKaF_GV6u':f'{name}_2024_0826'}
 	for fd in fd_dict.keys():
 		fd_file = fd
 		model_name = fd_dict[fd]
@@ -200,9 +200,9 @@ def run():
 		file.write(input)
 	
 	if col1.button('Get the prediction'):
-		# if any([not(prec), not(ros_smi)]):
-		# 	st.warning("Both of 'ROSs' and 'precursors' should be given, please check your input again")
-		# 	st.stop()
+		if any([not(prec), not(ros_smi)]):
+			st.warning("Both of 'ROSs' and 'precursors' should be given, please check your input again")
+			st.stop()
 		model_path = download()
 		message_container = st.empty()
 		message_container.text("model version:TP-Transformer-1.0.20240826")
