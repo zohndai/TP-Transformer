@@ -55,8 +55,9 @@ def download():
 	message_container = st.empty()
 	message_container.text("Downloading the models... Please wait.")
 	#https://drive.google.com/file/d/1MTK_uL2hyS2QJrmq4HjaVCdJNLkTf55s/view?usp=drive_link
-	#1sYMbRmpYo23b5wtiTAnE8VaJGm9dMnvt
-	fd_dict = {'1NmXn3OhaAexvfhdTwZQxq8gbKaF_GV6u':f'{name}_2024_0826'}
+	#1fa4ErVvXjZzbLCZzJEsQ6I9nelAR7iCu
+	#1NmXn3OhaAexvfhdTwZQxq8gbKaF_GV6u
+	fd_dict = {'1fa4ErVvXjZzbLCZzJEsQ6I9nelAR7iCu':f'{name}_2024_0826'}
 	for fd in fd_dict.keys():
 		fd_file = fd
 		model_name = fd_dict[fd]
