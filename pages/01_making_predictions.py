@@ -112,7 +112,7 @@ def build_translator(opt, report_score, logger=None, out_file=None):
     return translator
 
 st.set_page_config(
-    page_title="Welcome to DP-Transformer",    
+    page_title="Welcome to TP-Transformer",    
     page_icon="log.ico",        
     layout="wide",                
     initial_sidebar_state="auto"
@@ -133,11 +133,11 @@ def run():
 	methd_tokens=["UV", "heat", "VL", "MW", "E", "US", "hv", ""]
 	
 	st.subheader('What pollutant?')
-	poll = st.text_input("Please enter the SMILES notation for the pollutant, e.g. 'c1ccccc1' for benzene", "c1ccccc1")
+	poll = st.text_input("Please input the SMILES notation for the pollutant, e.g. 'c1ccccc1' for benzene", "c1ccccc1")
 	with st.expander("Show how to get SMILES of chemicals"):
 		st.write('You can get SMILES of any molecules from PubChem https://pubchem.ncbi.nlm.nih.gov/ by typing Chemical name or ACS number')
 	if poll =='':
-		st.warning('You should at least provide one chemical')
+		st.warning('Provide at least one molecular compound.')
 		st.stop()
 	
 	st.subheader('Please select the ROSs that drive the pollutant degradation')
