@@ -200,8 +200,8 @@ def run():
 		file.write(input)
 	
 	if col1.button('Get the prediction'):
-		if any([not(prec), not(ros_smi)]):
-			st.warning("Both of 'ROSs' and 'precursors' should be given, please check your input again")
+		if and([not(prec), not(ros_smi)]):
+			st.warning("At least one of 'ROSs' and 'precursors' should be given, please check your input again")
 			st.stop()
 		model_path = download()
 		message_container = st.empty()
