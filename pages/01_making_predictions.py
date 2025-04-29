@@ -254,7 +254,8 @@ def run():
 		recurr_list = []
 		for i in range(10):
 			list_cache = set(recurr_list)
-			smis_li[i] = [smiles for smiles in smis_li if smiles not in list_cache]
+			smils_i = smis_li[i]
+			smis_li[i] = [smiles for smiles in smis_li_i if smiles not in list_cache]
 			recurr_list += smis_li[i]
 		message_container = st.empty()
 		
