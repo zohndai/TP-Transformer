@@ -251,6 +251,11 @@ def run():
 		smis_li=[".".join(list(set(("".join(dp_smi.split(" "))).split(".")))) for dp_smi in dp_smis[0]]
 		if len(smis_li) != 10:
 			smis_li += [""] * (10 - len(smis_li))
+		recurr_list = []
+		for i in range(10):
+			list_a = list(set(recurr_list))
+			smis_li[i] = [smiles for smiles in smis_li if smiles not in list_a]
+			recurr_list += smis_li[i]
 		message_container = st.empty()
 		
 		message_container.text(",".join([f"top{i}:{smis_li[i-1]}" for i in range(1,11)]))
